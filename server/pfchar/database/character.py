@@ -197,7 +197,7 @@ def new_char(userid):
         }
     }
 
-    id = str(uuid.uuid4())
-    r_set('character', id, json.dumps(char))
+    id = 'uuid_' + uuid.uuid4().hex
+    r_set('character', id, char)
 
     return Character(id)

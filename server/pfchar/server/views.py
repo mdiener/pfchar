@@ -1,3 +1,5 @@
+import json
+
 from flask import render_template, request, session, url_for, redirect, abort, flash
 from pfchar.database.user import User, new_user
 from pfchar.database.character import Character, new_char
@@ -10,7 +12,10 @@ class Views(object):
 
     def character(self, charid):
         if not session.get('loggedin', False):
-            abort(401)
+            flash('Please log in to get your character.')
+            session['login_forward'] = 'character'
+
+            return redirect(url_for('login'))
 
         try:
             char = Character(charid, session.get('uid'))
@@ -22,7 +27,10 @@ class Views(object):
 
     def characters(self):
         if not session.get('loggedin', False):
-            abort(401)
+            flash('Please log in to access your characters.')
+            session['login_forward'] = 'characters'
+
+            return redirect(url_for('login'))
 
         try:
             user = User(uid=session.get('uid'))
@@ -37,7 +45,8 @@ class Views(object):
         return render_template('contact.html')
 
     def logout(self):
-        if session.get('loggedin', False):
+        if not session.get('loggedin', False):
+            flash('You are not logged in and have been returned to the home page.')
             return redirect(url_for('index'))
 
         session.pop('loggedin', None)
@@ -65,7 +74,11 @@ class Views(object):
             session['loggedin'] = True
             session['uid'] = user.uid
 
-            return render_template('index.html')
+            login_forward = session.pop('login_forward', None)
+            if login_forward is not None:
+                return redirect(url_for(login_forward))
+
+            return redirect(url_for('index'))
 
     def signup(self):
         if session.get('loggedin', False):
@@ -91,3 +104,5 @@ class Views(object):
 
             session['loggedin'] = True
             session['uid'] = user.uid
+
+            return redirect(url_for('index'))

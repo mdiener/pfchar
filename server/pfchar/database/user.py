@@ -10,8 +10,8 @@ class User(object):
     def __init__(self, email=None, uid=None):
         self._uid = None
 
-        if userid is not None:
-            self._uid = userid
+        if uid is not None:
+            self._uid = uid
             if r_exists('users', self._uid):
                 raise UserNotFoundError('Could not retrieve the user with the provided uid.')
         elif email is not None:
@@ -21,11 +21,11 @@ class User(object):
 
     def _get_user_by_email(self, email):
         all_users = r_get('users')
-        for uid, user in all_users.items():
-            if user['email'] == email:
+        for uid, userdata in all_users.items():
+            if userdata['email'] == email:
                 self._uid = uid
 
-        if self._user is None:
+        if self._uid is None:
             raise UserNotFoundError('Could not find the user with the specified email.')
 
     def check_password(self, password):
@@ -56,7 +56,7 @@ class User(object):
 
 
 def new_user(email, password):
-    uid = str(uuid.uuid4())
+    uid = 'uuid_' + uuid.uuid4().hex
     hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
 
     user = {
@@ -66,6 +66,6 @@ def new_user(email, password):
         'last_selected': ''
     }
 
-    r_set('users', uid, json.dumps(user))
+    r_set('users', uid, user)
 
     return User(uid=uid)
