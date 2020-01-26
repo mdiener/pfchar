@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="new_character">
+    <div id="classlist">
+        <ul></ul>
+    </div>
+</div>
+<div id="character">
+    <div id="attributes">
+        <div id="attribute_descriptors">
+            <span class="descriptor">Ability Name</span>
+            <span class="descriptor">Ability Score</span>
+            <span class="descriptor">Ability Modifier</span>
+            <span class="descriptor">Temp Adjustment</span>
+            <span class="descriptor">Temp Modifier</span>
+        </div>
+        <div id="attribute_str">
+            <div class="plaque attribute--name attr-str"><span class="text-shorthand">STR</span><span class="text-full">Strength</div>
+            <input type="number" class="number-field attribute--score" />
+            <div class="number-field attribute--mod"></div>
+            <input type="number" class="number-field attribute--temp-adjust" />
+            <div class="number-field attribute--temp-mod"></div>
+        </div>
+        <div id="attribute_dex">
+            <div class="plaque attribute--name attr-dex"><span class="text-shorthand">DEX</span><span class="text-full">Dexterity</div>
+            <input type="number" class="number-field attribute--score" />
+            <div class="number-field attribute--mod"></div>
+            <input type="number" class="number-field attribute--temp-adjust" />
+            <div class="number-field attribute--temp-mod"></div>
+        </div>
+        <div id="attribute_con">
+            <div class="plaque attribute--name attr-con"><span class="text-shorthand">CON</span><span class="text-full">Constitution</div>
+            <input type="number" class="number-field attribute--score" />
+            <div class="number-field attribute--mod"></div>
+            <input type="number" class="number-field attribute--temp-adjust" />
+            <div class="number-field attribute--temp-mod"></div>
+        </div>
+        <div id="attribute_int">
+            <div class="plaque attribute--name attr-int"><span class="text-shorthand">INT</span><span class="text-full">Intelligence</div>
+            <input type="number" class="number-field attribute--score" />
+            <div class="number-field attribute--mod"></div>
+            <input type="number" class="number-field attribute--temp-adjust" />
+            <div class="number-field attribute--temp-mod"></div>
+        </div>
+        <div id="attribute_wis">
+            <div class="plaque attribute--name attr-wis"><span class="text-shorthand">WIS</span><span class="text-full">Wisdom</div>
+            <input type="number" class="number-field attribute--score" />
+            <div class="number-field attribute--mod"></div>
+            <input type="number" class="number-field attribute--temp-adjust" />
+            <div class="number-field attribute--temp-mod"></div>
+        </div>
+        <div id="attribute_cha">
+            <div class="plaque attribute--name attr-cha"><span class="text-shorthand">CHA</span><span class="text-full">Charisma</div>
+            <input type="number" class="number-field attribute--score" />
+            <div class="number-field attribute--mod"></div>
+            <input type="number" class="number-field attribute--temp-adjust" />
+            <div class="number-field attribute--temp-mod"></div>
+        </div>
+    </div>
+    <div id="hitpoints">
+        <div class="plaque attr-con"><span class="text-shorthand">HP</span><span class="text-full">Hitpoints</span><span
+        <div class="number-field attr-con"><input id="hitpoints--total" type="number" /><span class="descriptor inside-field">Total</span></div>
+        <div class="number-field attr-con"><input id="hitpoints--dr" type="number" /><span class="descriptor inside-field">DR</span></div>
+        <div id="hitpoints--calc">
+            <div class="number-field attr-con"><input type="number" id="hitpoints--current" /><span class="descriptor inside-field">Current HP</span></div>
+            <div class="number-field attr-con"><input type="number" id="hitpoints--adjust" /><span class="descriptor inside-field">Adjust HP</span><button id="hitpoints--adjust-submit">Calculate</button></div>
+        </div>
+        <div class="number-field attr-con"><input type="number" id="hitpoints--nonlethal" /><span class="descriptor inside-field">Nonlehtal Damage</span></div>
+    </div>
+</div>
+{% endblock %}

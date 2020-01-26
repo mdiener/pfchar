@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="characters">
+    <p>See a list of your saved characters below and create a new one.</p>
+    <div id="character-list">
+    {% for character in characters %}
+        <div class="character-list--entry" id="{{ character['id'] }}"></div>
+    {% endfor %}
+        <div class="character-list--entry" id="new_character">
+            <p>Create New Character</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

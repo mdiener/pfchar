@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Pathfinder Character Manager</title>
+    </head>
+    <body>
+        <div id="message">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        </div>
+    {% endwith %}
+        <head></head>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">home</a></li>
+                <li><a href="{{ url_for('characters') }}">characters</a></li>
+                <li><a href="{{ url_for('contact') }}">contact</a></li>
+                <li><a href="{{ url_for('login') }}">login</a></li>
+            </ul>
+        </nav>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

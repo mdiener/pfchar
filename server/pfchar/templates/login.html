@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="login">
+    <h1>Login</h1>
+    <p>Login to access your characters or create a new one.</p>
+    <form id="login-form" action="{{ url_for('login') }}" method="POST">
+        <input type="email" name="email" placeholder="Your Email" />
+        <input type="password" name="password" placeholder="Your Password" />
+        <input type="submit" value="Login" />
+    </form>
+    <a href="{{ url_for('signup') }}">Sign Up</a>
+</div>
+{% endblock %}
