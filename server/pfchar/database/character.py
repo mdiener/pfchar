@@ -24,8 +24,7 @@ class Character(object):
             raise CharacterWriteError('Could not write the value ' + value + ' at .' + self._char_id + '.' + path)
 
     def __str__(self):
-        char = r_get('characters', self._char_id)
-        return json.dumps(char)
+        return r_get('characters', self._char_id)
 
     @property
     def id(self):
