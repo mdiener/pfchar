@@ -44,6 +44,9 @@ class Views(object):
     def contact(self):
         return render_template('contact.html')
 
+    def licenses(self):
+        return render_template('licenses.html')
+
     def logout(self):
         if not session.get('loggedin', False):
             flash('You are not logged in and have been returned to the home page.')
