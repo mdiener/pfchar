@@ -11,5 +11,9 @@
             <p>Create New Character</p>
         </div>
     </div>
+
+    {% block scripts %}
+    <script type="text/javascript" src="{{ url_for('static', filename='characters.js') }}"></script>
+    {% endblock %}
 </div>
 {% endblock %}
