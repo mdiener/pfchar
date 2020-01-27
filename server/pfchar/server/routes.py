@@ -7,3 +7,4 @@ class Routes(object):
         app.add_url_rule('/login', 'login', views.login, methods=['GET', 'POST'])
         app.add_url_rule('/signup', 'signup', views.signup, methods=['GET', 'POST'])
         app.add_url_rule('/logout', 'logout', views.logout)
+        app.add_url_rule('/licenses', 'licenses', views.licenses)
