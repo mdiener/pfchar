@@ -3,7 +3,7 @@ import json
 from flask import render_template, request, session, url_for, redirect, abort, flash
 from pfchar.database.user import User, new_user
 from pfchar.database.character import Character, new_char
-from pfchar.database.exceptions import CharacterReadError, DatabaseError
+from pfchar.database.exceptions import CharacterReadError, DatabaseError, UserNotFoundError, UserPasswordError
 
 
 class Views(object):
@@ -68,11 +68,12 @@ class Views(object):
             email = request.form.get('email', default=None)
             password = request.form.get('password', default=None)
 
-            user = User(email=email)
             try:
+                user = User(email=email)
                 user.check_password(password)
-            except UserPasswordError as e:
-                abort(401)
+            except (UserNotFoundError, UserPasswordError) as e:
+                flash('Wrong username/password, please try again.')
+                return render_template('login.html', email=email, password=password)
 
             session['loggedin'] = True
             session['uid'] = user.uid

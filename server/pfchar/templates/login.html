@@ -5,8 +5,8 @@
     <h1>Login</h1>
     <p>Login to access your characters or create a new one.</p>
     <form id="login-form" action="{{ url_for('login') }}" method="POST">
-        <input type="email" name="email" placeholder="Your Email" />
-        <input type="password" name="password" placeholder="Your Password" />
+        <input type="email" name="email" placeholder="Your Email" value="{% if email is defined %}{{ email }}{% endif %}" />
+        <input type="password" name="password" placeholder="Your Password" value="{% if password is defined %}{{ password }}{% endif %}" />
         <input type="submit" value="Login" />
     </form>
     <a href="{{ url_for('signup') }}">Sign Up</a>
