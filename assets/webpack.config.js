@@ -6,19 +6,21 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 
-module.exports = {
-    mode: 'development',
-    entry: ['./src/js/index.js', './src/css/base.scss'],
+var config = {
+};
+
+
+var jsConfig = Object.assign({}, config, {
+    entry: {
+        characters: path.resolve(__dirname, 'src', 'js', 'characters.js')
+    },
 
     output: {
-        filename: 'app.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, '..', 'server', 'pfchar', 'static')
     },
 
-    plugins: [new webpack.ProgressPlugin(), new CleanWebpackPlugin(), new MiniCssExtractPlugin({
-        filename: 'styles.css',
-        path: path.resolve(__dirname, '..', 'server', 'pfchar', 'static')
-    })],
+    plugins: [new webpack.ProgressPlugin()],
 
     module: {
         rules: [
@@ -39,7 +41,38 @@ module.exports = {
                         ]
                     ]
                 }
-            }, {
+            }
+        ]
+    },
+
+    optimization: {
+        minimizer: [new TerserJSPlugin({})]
+    },
+
+    devServer: {
+        open: true
+    }
+});
+
+var cssConfig = Object.assign({}, config, {
+    // entry: path.resolve(__dirname, 'src', 'css', 'base.scss'),
+    entry: {
+        styles: path.resolve(__dirname, 'src', 'css', 'base.scss')
+    },
+
+    output: {
+        // filename: 'styles.js',
+        path: path.resolve(__dirname, '..', 'server', 'pfchar', 'static')
+    },
+
+    plugins: [new MiniCssExtractPlugin({
+        filename: 'styles.css',
+        path: path.resolve(__dirname, '..', 'server', 'pfchar', 'static')
+    })],
+
+    module: {
+        rules: [
+            {
                 test: /\.scss$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
             }
@@ -47,10 +80,9 @@ module.exports = {
     },
 
     optimization: {
-        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
-    },
-
-    devServer: {
-        open: true
+        minimizer: [new OptimizeCSSAssetsPlugin({})]
     }
-};
+})
+
+
+module.exports = [jsConfig, cssConfig];
