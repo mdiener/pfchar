@@ -2,11 +2,35 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Pathfinder Character Manager</title>
+        <link href="https://fonts.googleapis.com/css?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
     </head>
     <body>
+        <header>
+            <img src="{{ url_for('static', filename='images/pathfinder_logo.png') }}" />
+        </header>
+        <div id="nav-container">
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">home</a></li>
+                    <li><a href="{{ url_for('characters') }}">characters</a></li>
+                </ul>
+            </nav>
+            <!-- <nav id="account-nav">
+                <ul>
+                {% if not session['loggedin'] %}
+                    <li><a href="{{ url_for('login') }}">login</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('logout') }}">logout</a></li>
+                {% endif %}
+                </ul>
+            </nav> -->
+        </div>
         <div id="message">
-    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             <ul>
             {% for category, message in messages %}
@@ -14,19 +38,13 @@
             {% endfor %}
             </ul>
         {% endif %}
+        {% endwith %}
         </div>
-    {% endwith %}
-        <head></head>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">home</a></li>
-                <li><a href="{{ url_for('characters') }}">characters</a></li>
-                <li><a href="{{ url_for('contact') }}">contact</a></li>
-                <li><a href="{{ url_for('login') }}">login</a></li>
-            </ul>
-        </nav>
         <div id="content">
             {% block content %}{% endblock %}
         </div>
+        <footer><p>{% if session['loggedin'] %}<a href="{{ url_for('logout') }}">Logout</a> | {% endif %}<a href="{{ url_for('licenses') }}">Licenses</a> | <a href="{{ url_for('contact') }}">Contact</a></p></footer>
+
+        {% block scripts %}{% endblock %}
     </body>
 </html>
