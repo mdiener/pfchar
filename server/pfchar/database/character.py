@@ -162,6 +162,10 @@ class Character(object):
 def new_char(userid):
     char = {
         'uid': userid,
+        'classes': [],
+        'level': 1,
+        'experience': 0,
+        'growth': 'medium',
         'ability': {
             'str': {
                 'base': 0,
@@ -193,6 +197,395 @@ def new_char(userid):
             'dr': 0,
             'current': 0,
             'nonlethal': 0
+        },
+        'skills': {
+            'acrobatics': {
+                'name': 'Acrobatics',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Acrobatics',
+                'attr': 'dex',
+                'trained': False,
+                'penalties': 'armor',
+                'ranks': 0,
+                'temp_adjust': 0,
+            },
+            'appraise': {
+                'name': 'Appraise',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Appraise',
+                'attr': 'int',
+                'trained': False,
+                'penalties': '',
+                'ranks': 0,
+                'temp_adjust': 0
+            },
+            'bluff': {
+                'name': 'Bluff',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Bluff',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'ranks': 0,
+                'temp_adjust': 0
+            },
+            'climb': {
+                'name': 'Climb',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Climb',
+                'attr': 'str',
+                'trained': False,
+                'penalties': 'armor',
+                'ranks': 0,
+                'temp_adjust': 0
+            },
+            'craft': {
+                'name': 'Craft',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Craft',
+                'attr': 'int',
+                'trained': False,
+                'penalties': '',
+                'ranks': 0,
+                'temp_adjust': 0
+            },
+            'diplomacy': {
+                'name': 'Diplomacy',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Diplomacy',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'ranks': 0,
+                'temp_adjust': 0
+            },
+            'disable_device': {
+                'name': 'Disable Device',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Disable%20Device',
+                'attr': 'dex',
+                'trained': True,
+                'penalties': 'armor',
+                'ranks': 0,
+                'temp_adjust': 0
+            },
+            'disguise': {
+                'name': 'Disguise',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Disguise',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'ranks': 0,
+                'temp_adjust': 0
+            },
+            'escape_artist': {
+                'name': 'Escape Artist',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Escape%20Artist',
+                'attr': 'dex',
+                'trained': False,
+                'penalties': 'armor',
+                'ranks': 0,
+                'temp_adjust': 0
+            },
+            'fly': {
+                'name': 'Fly',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Fly',
+                'attr': 'dex',
+                'trained': False,
+                'penalties': 'armor',
+                'ranks': 0,
+                'temp_adjust': 0
+            },
+            'handle_animal': {
+                'name': 'Handle Animal',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Handle%20Animal',
+                'attr': 'cha',
+                'trained': True,
+                'penalties': '',
+                'ranks': 0,
+                'temp_adjust': 0
+            },
+            'heal': {
+                'name': 'Heal',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Heal',
+                'attr': 'wis',
+                'trained': False,
+                'penalties': '',
+                'ranks': 0,
+                'temp_adjust': 0
+            },
+            'intimidate': {
+                'name': 'Intimidate',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Intimidate',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'ranks': 0,
+                'temp_adjust': 0
+            },
+            'knowlege_arcana': {
+                'name': 'Knowlege Arcana',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Knowlege',
+                'attr': 'int',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'knowlege_dungeoneering': {
+                'name': 'Knowlege Dungeoneering',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Knowlege',
+                'attr': 'int',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'knowlege_engineering': {
+                'name': 'Knowlege Engineering',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Knowlege',
+                'attr': 'int',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'knowlege_geography': {
+                'name': 'Knowlege Geography',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Knowlege',
+                'attr': 'int',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'knowlege_history': {
+                'name': 'Knowlege History',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Knowlege',
+                'attr': 'int',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'knowlege_local': {
+                'name': 'Knowlege Local',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Knowlege',
+                'attr': 'int',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'knowlege_nature': {
+                'name': 'Knowlege Nature',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Knowlege',
+                'attr': 'int',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'knowlege_nobility': {
+                'name': 'Knowlege Nobility',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Knowlege',
+                'attr': 'int',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'knowlege_planes': {
+                'name': 'Knowlege Planes',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Knowlege',
+                'attr': 'int',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'knowlege_religion': {
+                'name': 'Knowlege Religion',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Knowlege',
+                'attr': 'int',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'linguistics': {
+                'name': 'Linguistics',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Linguistics',
+                'attr': 'int',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'perception': {
+                'name': 'Perception',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Perception',
+                'attr': 'wis',
+                'trained': False,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'perform_act': {
+                'name': 'Perform Act',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Perform',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'perform_comedy': {
+                'name': 'Perform Comedy',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Perform',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'perform_dance': {
+                'name': 'Perform Dance',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Perform',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'perform_keyboard_instruments': {
+                'name': 'Perform Keyboard Instruments',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Perform',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'perform_oratory': {
+                'name': 'Perform Oratory',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Perform',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'perform_percussion_instruments': {
+                'name': 'Perform Percussion Instruments',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Perform',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'perform_string_instruments': {
+                'name': 'Perform String Instruments',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Perform',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'perform_wind_instruments': {
+                'name': 'perform Wind Instruments',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Perform',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'perform_sing': {
+                'name': 'Perform Sing',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Perform',
+                'attr': 'cha',
+                'trained': False,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'profession': {
+                'name': 'Profession',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Profession'
+                'attr': 'wis',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'ride': {
+                'name': 'Ride',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Ride'
+                'attr': 'dex',
+                'trained': False,
+                'penalties': 'armor',
+                'rank': 0,
+                'adjust': 0
+            },
+            'sense_motive': {
+                'name': 'Sense Motive',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Sense%20Motive'
+                'attr': 'wis',
+                'trained': False,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'sleight_of_hand': {
+                'name': 'Sleight of Hand',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Sleight%20of%20Hand'
+                'attr': 'dex',
+                'trained': True,
+                'penalties': 'armor',
+                'rank': 0,
+                'adjust': 0
+            },
+            'spellcraft': {
+                'name': 'Spellcraft',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Spellcraft'
+                'attr': 'int',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'stealth': {
+                'name': 'Stealth',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Stealth'
+                'attr': 'dex',
+                'trained': False,
+                'penalties': 'armor',
+                'rank': 0,
+                'adjust': 0
+            },
+            'survival': {
+                'name': 'Survival',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Survival'
+                'attr': 'wis',
+                'trained': False,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            },
+            'swim': {
+                'name': 'Swim',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Swim'
+                'attr': 'str',
+                'trained': False,
+                'penalties': 'armor',
+                'rank': 0,
+                'adjust': 0
+            },
+            'use_magic_device': {
+                'name': 'Use Magic Device',
+                'nethys_link': 'https://aonprd.com/Skills.aspx?ItemName=Use%20Magic%20Device'
+                'attr': 'cha',
+                'trained': True,
+                'penalties': '',
+                'rank': 0,
+                'adjust': 0
+            }
         }
     }
 
