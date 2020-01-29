@@ -7,11 +7,6 @@ from pfchar.database.exceptions import DatabaseError
 
 redis_instance = redis.Redis(host=DB_HOST, port=DB_PORT, db=DB_NR)
 
-if not redis_instance.exists('users'):
-    redis_instance.execute_command('JSON.SET', 'users', '.', json.dumps({}))
-if not redis_instance.exists('characters'):
-    redis_instance.execute_command('JSON.SET', 'characters', '.', json.dumps({}))
-
 
 def r_get(key, *args):
     try:
