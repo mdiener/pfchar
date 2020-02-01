@@ -1,0 +1,335 @@
+{
+    "dwarf": {
+        "name": "Dwarf",
+        "direct_bonus": {
+            "attributes": {
+                "con": 2,
+                "wis": 2,
+                "cha": -2
+            }
+        },
+        "races": ["dwarf"],
+        "size": "medium",
+        "speed": 20,
+        "traits": {
+            "darkvision": {
+                "name": "Darkvision",
+                "description": "Dwarves can see in the dark up to 60 feet.",
+                "affects": ["vision"]
+            },
+            "defensive_training": {
+                "name": "Defensive Training",
+                "description": "Dwarves get a +4 dodge bonus to their AC against monsters of the giant subtype.",
+                "affects": ["ac"]
+            },
+            "greed": {
+                "name": "Greed",
+                "description": "Dwarves receive a +2 racial bonus on Appraise checks made to determine the price of nonmagical goods that contain precious metals or gemstones.",
+                "affects": ["appraise"]
+            },
+            "hatred": {
+                "name": "Hatred",
+                "description": "Dwarves receive a +1 bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes because of their special training against these hated foes.",
+                "affects": ["attacks"]
+            },
+            "hardy": {
+                "name": "Hardy",
+                "description": "Dwarves receive a +2 racial bonus on saving throws against poison, spells, and spell-like abilities.",
+                "affects": ["savings"]
+            },
+            "stability": {
+                "name": "Stability",
+                "description": "Dwarves receive a +4 racial bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground.",
+                "affects": ["cmd"]
+            },
+            "stonecunning": {
+                "name": "Stonecunning",
+                "description": "Dwarves receive a +2 bonus on Perception checks to potentially notice unusual stonework, such as traps and hidden doors located in stone walls or floors. They receive a check to notice any such features that they pass within 10 feet of, whether or not they are actively looking.",
+                "affects": ["preception"]
+            }
+        },
+        "proficiency": ["Battleaxe", "Heavy Pick", "Warhammer"],
+        "languages": {
+            "base": ["Common", "Dwarven"],
+            "extended": ["Giant", "Gnome", "Goblin", "Orc", "Terran", "Undercommon"]
+        },
+        "nethys_link": "https://www.aonprd.com/RacesDisplay.aspx?ItemName=Dwarf"
+    },
+    "elf": {
+        "name": "Elf",
+        "direct_bonus": {
+            "attributes": {
+                "dex": 2,
+                "int": 2,
+                "con": -2
+            }
+        },
+        "races": ["elf"],
+        "size": "medium",
+        "speed": 30,
+        "traits": {
+            "low_light_vision": {
+                "name": "Low-Light Vision",
+                "description": "Elves can see twice as far as humans in conditions of dim light.",
+                "affects": ["vision"]
+            },
+            "elven_immunities": {
+                "name": "Elven Immunities",
+                "description": "Elves are immune to magic sleep effects and get a +2 racial bonus on saving throws against enchantment spells and effects.",
+                "affects": ["savings"]
+            },
+            "elven_magic": {
+                "name": "Elven Magic",
+                "description": "Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft checks made to identify the properties of magic items.",
+                "affects": ["spells", "spellcraft"]
+            },
+            "keen_senses": {
+                "name": "Keen Senses",
+                "description": "Elves receive a +2 racial bonus on Perception checks.",
+                "direct_bonus": {
+                    "skills": {
+                        "perception": 2
+                    }
+                },
+                "affects": ["perception"]
+            }
+        },
+        "proficiency": ["Longbow", "Longsword", "Rapier", "Shortbow"],
+        "languages": {
+            "base": ["Common", "Elven"],
+            "extended": ["Celestial", "Draconic", "Gnoll", "Gnome", "Goblin", "Orc", "Sylvan"]
+        },
+        "nethys_link": "https://www.aonprd.com/RacesDisplay.aspx?ItemName=Elf"
+    },
+    "gnome": {
+        "name": "Gnome",
+        "direct_bonus": {
+            "attributes": {
+                "con": 2,
+                "cha": 2,
+                "str": -2
+            },
+            "ac": 1,
+            "attack": 1,
+            "cmd": -1,
+            "skills": {
+                "stealth": 4
+            }
+        },
+        "races": ["gnome"],
+        "size": "small",
+        "speed": 20,
+        "traits": {
+            "low_light_vision": {
+                "name": "Low-Light Vision",
+                "description": "Gnomes can see twice as far as humans in conditions of dim light.",
+                "affects": ["vision"]
+            },
+            "defensive_training": {
+                "name": "Defensive Training",
+                "description": "Gnomes get a +4 dodge bonus to their AC against monsters of the giant type.",
+                "affects": ["ac"]
+            },
+            "gnome_magic": {
+                "name": "Gnome Magic",
+                "description": "Gnomes add 1 to the DCs of any saving throws to resist illusion spells that they cast. Gnomes with a Charisma of 11 or higher also gain the following spell-like abilities: 1/day—dancing lights, ghost sound, prestidigitation, and speak with animals. The caster level for these effects is equal to the gnome’s character level. The DC for these spells is equal to 10 + the spell’s level + the gnome’s Charisma modifier.",
+                "affects": ["saves"]
+            },
+            "hatred": {
+                "name": "Hatred",
+                "description": "Gnomes receive a +1 bonus on attack rolls against humanoid creatures of the reptilian and goblinoid subtypes because of their special training against these hated foes.",
+                "affects": ["attacks"]
+            },
+            "illusion_resistance": {
+                "name": "Illusion Resistance",
+                "description": "Gnomes get a +2 racial bonus on saving throws against illusion spells or effects.",
+                "affects": ["savings"]
+            },
+            "keen_senses": {
+                "name": "Keen Senses",
+                "description": "Gnomes receive a +2 racial bonus on Perception checks.",
+                "affects": ["preception"],
+                "applied": true
+            },
+            "obsessive": {
+                "name": "Obsessive",
+                "description": "Gnomes receive a +2 racial bonus on a Craft or Profession skill of their choice.",
+                "affects": ["craft", "profession"]
+            }
+        },
+        "proficiency": [],
+        "languages": {
+            "basic": ["common", "gnome"],
+            "extended": ["draconic", "dwarven", "elven", "giant", "goblin", "orc"]
+        },
+        "nethys_link": "https://www.aonprd.com/RacesDisplay.aspx?ItemName=Gnome"
+    },
+    "halfelf": {
+        "name": "Half-Elf",
+        "races": ["elf", "human"],
+        "size": "medium",
+        "speed": 20,
+        "traits": {
+            "low_light_vision": {
+                "name": "Low-Light Vision",
+                "description": "Half-elves can see twice as far as humans in conditions of dim light.",
+                "affects": ["vision"]
+            },
+            "adaptability": {
+                "name": "Adaptability",
+                "description": "Half-elves receive Skill Focus as a bonus feat at 1st level.",
+                "direct_bonus": {
+                    "feats": ["skill_focus"]
+                },
+                "affects": ["skill_focus"]
+            },
+            "elf_blood": {
+                "name": "Elf Blood",
+                "description": "Half-elves count as both elves and humans for any effect related to race.",
+                "affects": ["races"]
+            },
+            "elven_immunities": {
+                "name": "Elven Immunities",
+                "description": "Half-elves are immune to magic sleep effects and get a +2 racial bonus on saving throws against enchantment spells and effects.",
+                "affects": ["savings"]
+            },
+            "keen_senses": {
+                "name": "Keen Senses",
+                "description": "Half-elves receive a +2 racial bonus on Perception checks.",
+                "direct_bonus": {
+                    "skills": {
+                        "perception": 2
+                    }
+                },
+                "affects": ["perception"]
+            },
+            "multitalented": {
+                "name": "Multitalented",
+                "description": "Half-elves choose two favored classes at 1st level and gain 1 additional hit point or skill point whenever they take a level in either one of those classes.",
+                "affects": ["hp", "skills"]
+            }
+        },
+        "proficiency": [],
+        "languages": {
+            "basic": ["common", "elven"],
+            "extended": ["abyssal", "aklo", "aquan", "auran", "celestial", "draconic", "dwarven", "giant", "gnome", "goblin", "gnoll", "halfling", "ignan", "infernal", "orc", "sylvan", "terran", "undercommon"]
+        }
+    },
+    "halfling": {
+        "name": "Halfling",
+        "direct_bonus": {
+            "attributes": {
+                "dex": 2,
+                "cha": 2,
+                "str": -2
+            },
+            "ac": 1,
+            "attack": 1,
+            "cmd": -1,
+            "skills": {
+                "stealth": 4
+            }
+        },
+        "races": ["halfling"],
+        "size": "small",
+        "speed": 20,
+        "traits": {
+            "fearless": {
+                "name": "Fearless",
+                "description": "Halflings receive a +2 racial bonus on all saving throws against fear. This bonus stacks with the bonus granted by halfling luck.",
+                "affects": ["savings"]
+            },
+            "halfling_luck": {
+                "name": "Halfling Luck",
+                "description": "Halflings receive a +1 racial bonus on all saving throws.",
+                "affects": ["savings"]
+            },
+            "keen_senses": {
+                "name": "Keen Senses",
+                "description": "Halflings receive a +2 racial bonus on Perception checks.",
+                "direct_bonus": {
+                    "skills": {
+                        "preception": 2
+                    }
+                },
+                "affects": ["preception"]
+            },
+            "sure_footed": {
+                "name": "Sure Footed",
+                "description": "Halflings receive a +2 racial bonus on Acrobatics and Climb checks.",
+                "direct_bonus": {
+                    "skills": {
+                        "acrobatics": 2,
+                        "climb": 2
+                    }
+                },
+                "affects": ["acrobatics", "climb"]
+            }
+        },
+        "proficiency": ["sling"],
+        "languages": {
+            "basic": ["common", "halfling"],
+            "extended": ["dwarven", "elven", "gnome", "goblin"]
+        }
+    },
+    "halforc": {
+        "name": "Half-Orc",
+        "races": ["human", "orc"],
+        "size": "medium",
+        "speed": 30,
+        "traits": {
+            "dark_vision": {
+                "name": "Dark Vision",
+                "description": "Half-orcs can see in the dark up to 60 feet.",
+                "affects": ["vision"]
+            },
+            "intimidating": {
+                "name": "Intimidating",
+                "description": "Half-orcs receive a +2 racial bonus on Intimidate checks because of their fearsome nature.",
+                "direct_bonus": {
+                    "skills": {
+                        "intimidate": 2
+                    }
+                },
+                "affects": ["intimidate"]
+            },
+            "orc_blood": {
+                "name": "Orc Blood",
+                "description": "Half-orcs count as both humans and orcs for any effect related to race.",
+                "affects": ["races"]
+            },
+            "orc_ferocity": {
+                "name": "Orc Ferocity",
+                "description": "Once per day, when a half-orc is brought below 0 hit points but not killed, he can fight on for 1 more round as if disabled. At the end of his next turn, unless brought to 1 or more hit points, he immediately falls unconscious and begins dying.",
+                "affects": ["unconscious"]
+            }
+        },
+        "proficiency": ["greataxe", "falchion"],
+        "languages": {
+            "basic": ["common", "orc"],
+            "extended": ["abyssal", "draconic", "giant", "gnoll", "goblin"]
+        }
+    },
+    "human": {
+        "name": "Human",
+        "races": ["human"],
+        "size": "medium",
+        "speed": 20,
+        "traits": {
+            "bonus_feat": {
+                "name": "Bonus Feat",
+                "description": "Humans select one extra feat at 1st level.",
+                "affects": ["feats"]
+            },
+            "skilled": {
+                "name": "Skilled",
+                "description": "Humans gain 1 additional skill rank at 1st level and 1 additional rank whenever they gain a level.",
+                "affects": ["skills"]
+            }
+        },
+        "languages": {
+            "basic": ["common"],
+            "extended": ["abyssal", "aklo", "aquan", "auran", "celestial", "draconic", "dwarven", "elven", "giant", "gnome", "goblin", "gnoll", "halfling", "ignan", "infernal", "orc", "sylvan", "terran", "undercommon"]
+        }
+    }
+}

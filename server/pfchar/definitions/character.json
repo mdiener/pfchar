@@ -1,0 +1,107 @@
+{
+    "basics": {
+        "experience": 0,
+        "growth": "medium",
+        "level": 0,
+        "name": "",
+        "race": "",
+        "classes": []
+    },
+    "misc": {
+        "deity": "",
+        "homeland": "",
+        "size": "",
+        "gender": "",
+        "age": "",
+        "height": "",
+        "weight": "",
+        "hair": "",
+        "eyes": ""
+    },
+    "attributes": {
+        "str": {
+            "score": 0,
+            "adjust": 0,
+            "bonus": {
+                "total": 0,
+                "from": []
+            }
+        },
+        "dex": {
+            "score": 0,
+            "adjust": 0,
+            "bonus": {
+                "total": 0,
+                "from": []
+            }
+        },
+        "con": {
+            "score": 0,
+            "adjust": 0,
+            "bonus": {
+                "total": 0,
+                "from": []
+            }
+        },
+        "int": {
+            "score": 0,
+            "adjust": 0,
+            "bonus": {
+                "total": 0,
+                "from": []
+            }
+        },
+        "wis": {
+            "score": 0,
+            "adjust": 0,
+            "bonus": {
+                "total": 0,
+                "from": []
+            }
+        },
+        "cha": {
+            "score": 0,
+            "adjust": 0,
+            "bonus": {
+                "total": 0,
+                "from": []
+            }
+        }
+    },
+    "hitpoints": {
+        "total": 0,
+        "dr": 0,
+        "current": 0
+    },
+    "initiative": 0,
+    "ac": {
+        "base": {
+            "shield_bonus": 0,
+            "armor_bonus": 0,
+            "natural_armor": 0,
+            "deflection_modifier": 0,
+            "adjust": 0
+        },
+        "touch": 0,
+        "flat_footed": 0,
+        "sr": 0
+    },
+    "attack": {
+        "bab": 0
+    },
+    "savings": {
+        "fortitude": {
+            "magic": 0,
+            "adjustment": 0
+        },
+        "refles": {
+            "magic": 0,
+            "adjustment": 0
+        },
+        "will": {
+            "magic": 0,
+            "adjustment": 0
+        }
+    },
+    "feats": []
+}
