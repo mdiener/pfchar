@@ -1,6 +1,6 @@
 # Pathfinder Character Manager
 
-The purpose of this project is to create an interactive and dynamic Pathfinder character manager. It should be an easy to use tool for any D&D player wanting to create and maintain a Pathfinder character online.
+The purpose of this project is to create an interactive and dynamic Pathfinder character manager. It should be an easy to use tool for any D&D player wanting to create and maintain a Pathfinder character online. It is aggressively "mobile first" and is designed to be viewed on a phone. That said, it should also work on any other browser/operating system.
 
 ## Features
 * Simple creation and storage of characters online
