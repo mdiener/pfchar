@@ -18,7 +18,7 @@ var jsConfig = Object.assign({}, config, {
 
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, '..', 'server', 'pfchar', 'static')
+        path: path.resolve(__dirname, '..', 'server', 'pfchar', 'static', 'javascript')
     },
 
     plugins: [new webpack.ProgressPlugin()],
@@ -63,12 +63,12 @@ var cssConfig = Object.assign({}, config, {
 
     output: {
         // filename: 'styles.js',
-        path: path.resolve(__dirname, '..', 'server', 'pfchar', 'static')
+        path: path.resolve(__dirname, '..', 'server', 'pfchar', 'static', 'css')
     },
 
     plugins: [new MiniCssExtractPlugin({
         filename: 'styles.css',
-        path: path.resolve(__dirname, '..', 'server', 'pfchar', 'static')
+        path: path.resolve(__dirname, '..', 'server', 'pfchar', 'static', 'css')
     })],
 
     module: {

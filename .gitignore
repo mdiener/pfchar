@@ -3,7 +3,3 @@ node_modules
 __pycache__
 *.pyc
 assets/dist
-
-# Ignore css/js static files
-server/pfchar/static/*.js
-server/pfchar/static/*.css
