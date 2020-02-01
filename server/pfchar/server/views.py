@@ -60,7 +60,16 @@ class Views(object):
             flash('Something went wrong when trying to get your characters. Please try again or contact an administrator if the problem persists.', 'error')
             return redirect(url_for('index'))
 
-        return render_template('characters.html', characters=json.dumps(chars))
+        charlist = []
+        for char in chars:
+            charlist.append({
+                'url': url_for('character', charid=char.id),
+                'name': char.name,
+                'classes': char.classes,
+                'race': char.race
+            })
+
+        return render_template('characters.html', char_list=charlist)
 
     def contact(self):
         return render_template('contact.html')

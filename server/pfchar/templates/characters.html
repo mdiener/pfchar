@@ -4,16 +4,45 @@
 <div id="characters">
     <p>See a list of your saved characters below and create a new one.</p>
     <div id="character-list">
-    {% for character in characters %}
-        <div class="character-list--entry" id="{{ character['id'] }}"></div>
+    {% for char in char_list %}
+        <div class="character-list--entry" data-href="{{ char.url }}">
+            <span class="character-list--entry--name">{{ char.name }}</span><span class="character-list--entry--race">{{ char.race }}</span>
+            <div class="character-list--entry--classes">
+{% for cls in char.classes %}
+<span class="character-list--entry--classes--class">{{ cls[0] }} lvl {{ cls[1] }}</span>
+{% endfor %}
+            </div>
+        </div>
     {% endfor %}
         <div class="character-list--entry" id="new_character">
             <p>Create New Character</p>
         </div>
     </div>
-
-    {% block scripts %}
-    <script type="text/javascript" src="{{ url_for('static', filename='characters.js') }}"></script>
-    {% endblock %}
+    <div id="new_character_form" class="section hidden">
+        <p>Crete your new character. Give it a name, select a race and a class to start off!</p>
+        <form action="{{ url_for('new_character') }}" method="POST">
+            <input type="text" name="name" placeholder="Character Name" />
+            <select name="race">
+                <option selected="selected" hidden>Select Your Race</option>
+                <option value="dwarf">Dwarf</option>
+                <option value="elf">Elf</option>
+                <option value="gnome">Gnome</option>
+                <option value="halfelf">Half-Elf</option>
+                <option value="halfling">Halfling</option>
+                <option value="halforc">Half-Orc</option>
+                <option value="human">Human</option>
+            </select>
+            <select name="class">
+                <option selected="selected" hidden>Select Your Starting Class</option>
+                <option value="occultist">Occultist</option>
+            </select>
+            <input type="submit" value="Create Character">
+        </form>
+        <button id="new_character_form--cancel">Cancel</button>
+    </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{{ url_for('static', filename='characters.js') }}"></script>
 {% endblock %}

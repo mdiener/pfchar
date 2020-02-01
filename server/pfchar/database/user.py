@@ -1,9 +1,9 @@
 import bcrypt
 import uuid
 import json
-from pfchar.database.connection import r_get, r_set, r_exists
+from pfchar.database.connection import r_get, r_set, r_exists, r_append
 from pfchar.database.exceptions import UserNotFoundError, UserPasswordError
-from pfchar.database.character import new_char
+from pfchar.database.character import new_char, Character
 
 
 class User(object):
@@ -12,7 +12,7 @@ class User(object):
 
         if uid is not None:
             self._uid = uid
-            if r_exists('users', self._uid):
+            if not r_exists('users', self._uid):
                 raise UserNotFoundError('Could not retrieve the user with the provided uid.')
         elif email is not None:
             self._get_user_by_email(email)
@@ -43,16 +43,20 @@ class User(object):
 
     @property
     def characters(self):
-        return r_get('users', self._uid + '.characters')
+        charids = r_get('users', self._uid + '.characters')
+        chars = []
+        for charid in charids:
+            chars.append(Character(charid, self._uid))
+
+        return chars
 
     @property
     def last_selected_char(self):
-        return r_get('users', self._uid + '.last_selected')
+        charid = r_get('users', self._uid + '.last_selected');
+        return Character(charid)
 
-    def new_character(self):
-        char = new_char(self._uid)
-
-        r_append('users', self._uid + '.characters', char)
+    def add_character(self, char):
+        r_append('users', self._uid + '.characters', char.id)
 
 
 def new_user(email, password):
@@ -68,4 +72,4 @@ def new_user(email, password):
 
     r_set('users', uid, user)
 
-    return User(uid=uid)
+    return User(email=email)

@@ -12,7 +12,8 @@ var config = {
 
 var jsConfig = Object.assign({}, config, {
     entry: {
-        characters: path.resolve(__dirname, 'src', 'js', 'characters.js')
+        characters: path.resolve(__dirname, 'src', 'js', 'characters.js'),
+        character: path.resolve(__dirname, 'src', 'js', 'character.js')
     },
 
     output: {
