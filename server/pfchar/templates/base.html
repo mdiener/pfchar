@@ -22,19 +22,21 @@
             </nav>
         </div>
 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            <div id="message">
-                <ul>
-                {% for category, message in messages %}
-                    <li class="{{ category }}">{{ message }}</li>
-                {% endfor %}
-                </ul>
-            </div>
-        {% endif %}
-        {% endwith %}
-
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div id="message">
+            <ul>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+        <div id="content" class="messages-shown">
+    {% else %}
         <div id="content">
+    {% endif %}
+    {% endwith %}
+
             {% block content %}{% endblock %}
         </div>
         <footer><p>{% if session['loggedin'] %}<a href="{{ url_for('logout') }}">Logout</a> | {% endif %}<a href="{{ url_for('licenses') }}">Licenses</a> | <a href="{{ url_for('contact') }}">Contact</a></p></footer>
