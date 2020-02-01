@@ -23,7 +23,28 @@ class Views(object):
             flash('Could not retrieve the character.', 'error')
             return redirect(url_for('characters'))
 
-        return render_template('character.html', char=str(char))
+        return render_template('character.html')
+
+    def new_character(self):
+        char_class = request.form.get('class', default=None)
+        if char_class is None:
+            flash('You need to select a starting class for your new character.')
+            return redirect(url_for('characters'))
+
+        char_race = request.form.get('race', default=None)
+        if char_race is None:
+            flash('You need to select a race for your new character.')
+            return redirect(url_for('characters'))
+
+        char_name = request.form.get('name', default=None)
+        if char_name is None:
+            flash('You need to provide a name for your character.')
+            return redirect(url_for('characters'))
+
+        user = User(uid=session.get('uid'))
+        char = new_char(session.get('uid'), char_name, char_class, char_race)
+        user.add_character(char)
+        return redirect(url_for('character', charid=char.id))
 
     def characters(self):
         if not session.get('loggedin', False):

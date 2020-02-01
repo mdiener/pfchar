@@ -12,6 +12,7 @@
         <header>
             <img src="{{ url_for('static', filename='images/pathfinder_logo.png') }}" />
         </header>
+
         <div id="nav-container">
             <nav id="main-nav">
                 <ul>
@@ -19,27 +20,20 @@
                     <li><a href="{{ url_for('characters') }}">characters</a></li>
                 </ul>
             </nav>
-            <!-- <nav id="account-nav">
-                <ul>
-                {% if not session['loggedin'] %}
-                    <li><a href="{{ url_for('login') }}">login</a></li>
-                {% else %}
-                    <li><a href="{{ url_for('logout') }}">logout</a></li>
-                {% endif %}
-                </ul>
-            </nav> -->
         </div>
-        <div id="message">
+
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-            <ul>
-            {% for category, message in messages %}
-                <li class="{{ category }}">{{ message }}</li>
-            {% endfor %}
-            </ul>
+            <div id="message">
+                <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            </div>
         {% endif %}
         {% endwith %}
-        </div>
+
         <div id="content">
             {% block content %}{% endblock %}
         </div>

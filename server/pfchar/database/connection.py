@@ -17,7 +17,6 @@ def r_get(key, *args):
     try:
         result = redis_instance.execute_command('JSON.GET', key, '.' + path)
     except RedisError as e:
-        print(str(e))
         raise DatabaseError('Could not get the value at key "' + key + '" with path "' + path + '".')
 
     if result is not None:
@@ -37,9 +36,7 @@ def r_set(key, *args):
     try:
         redis_instance.execute_command('JSON.SET', key, '.' + path, json.dumps(value))
     except RedisError as e:
-        print(str(e))
-        raise DatabaseError('Could not set the value "' + value + '" at key "' + key + '" with path "' + path + '".')
-
+        raise DatabaseError('Could not set the value at key "' + key + '" with path "' + path + '".')
 
 
 def r_exists(key, *args):
@@ -51,10 +48,9 @@ def r_exists(key, *args):
     try:
         result = redis_instance.execute_command('JSON.TYPE', key, '.' + path)
     except RedisError as e:
-        print(str(e))
         raise DatabaseError('There was an error when trying to determine if path "' + path + '" exists at "' + key + '".')
 
-    return result is None
+    return result is not None
 
 
 def r_append(key, *args):
@@ -68,5 +64,4 @@ def r_append(key, *args):
     try:
         redis_instance.execute_command('JSON.ARRAPPEND', key, '.' + path, json.dumps(value))
     except RedisError as e:
-        print(str(e))
         raise DatabaseError('Could not append "' + value + '" at key "' + key + '" with path "' + path + '".')
