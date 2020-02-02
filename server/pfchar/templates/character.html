@@ -77,11 +77,11 @@
                 <div class="plaque">
                     <span class="text">Land</span>
                 </div>
-                <div id="speed--land--base" class="input-field descriptor-inside">
+                <div id="speed--land--base" class="input-field">
                     <input type="number" />
                     <span class="descriptor">Ft</span>
                 </div>
-                <div id="speed--land--armor" class="input-field descriptor-inside">
+                <div id="speed--land--armor" class="input-field">
                     <input type="number" />
                     <span class="descriptor">Ft</span>
                 </div>
@@ -90,7 +90,7 @@
                 <div class="plaque">
                     <span class="text">Fly</span>
                 </div>
-                <div id="speed--fly--base" class="input-field descriptor-inside">
+                <div id="speed--fly--base" class="input-field">
                     <input type="number" />
                     <span class="descriptor">Ft</span>
                 </div>
@@ -99,7 +99,7 @@
                 <div class="plaque">
                     <span class="text">Swim</span>
                 </div>
-                <div id="speed--fly--base" class="input-field descriptor-inside">
+                <div id="speed--fly--base" class="input-field">
                     <input type="number" />
                     <span class="descriptor">Ft</span>
                 </div>
@@ -108,7 +108,7 @@
                 <div class="plaque">
                     <span class="text">Climb</span>
                 </div>
-                <div id="speed--climb--base" class="input-field descriptor-inside">
+                <div id="speed--climb--base" class="input-field">
                     <input type="number" />
                     <span class="descriptor">Ft</span>
                 </div>
@@ -117,7 +117,7 @@
                 <div class="plaque">
                     <span class="text">Burrow</span>
                 </div>
-                <div id="speed--burrow--base" class="input-field descriptor-inside">
+                <div id="speed--burrow--base" class="input-field">
                     <input type="number" />
                     <span class="descriptor">Ft</span>
                 </div>
@@ -131,167 +131,176 @@
     <div id="character--attr-hp" class="section hidden character-section">
         <div id="attributes">
             <p>Character Attributes</p>
-            <div id="attributes--descriptors" class="flex-box-container">
+            <div id="attributes--descriptors" class="flex-box-container attribute-entry">
                 <span class="descriptor">Ability Name</span>
                 <span class="descriptor">Ability Score</span>
                 <span class="descriptor">Other Bonuses</span>
                 <span class="descriptor">Temp Adjustment</span>
                 <span class="descriptor">Ability Modifier</span>
             </div>
-            <div id="attributes--str" class="flex-box-container">
+            <div id="attributes--str" class="flex-box-container attribute-entry">
                 <div class="plaque attr-str"><span class="text-top">STR</span><span class="text-bottom">Strength</div>
-                <div id="attribute--str--score" class="input-field attr-str"><input type="number" /></div>
-                <div id="attribute--str--bonuses" class="input-field attr-str bonus-modifier"><input type="number" disabled /></div>
-                <div id="attribute--str--adjustment" class="input-field attr-str"><input type="number" /></div>
-                <div id="attribute--str--mod" class="input-field attr-str"><input type="number" disabled /></div>
+                <div id="attribute--str--score" class="input-field input-field-box attr-str"><input type="number" /></div>
+                <div id="attribute--str--bonuses" class="input-field input-field-box attr-str bonus-modifier"><input type="number" disabled /></div>
+                <div id="attribute--str--adjustment" class="input-field input-field-box attr-str"><input type="number" /></div>
+                <div id="attribute--str--mod" class="input-field input-field-box attr-str input-field-total"><input type="number" disabled /></div>
             </div>
-            <div id="attributes--dex" class="flex-box-container">
+            <div id="attributes--dex" class="flex-box-container attribute-entry">
                 <div class="plaque attr-dex"><span class="text-top">DEX</span><span class="text-bottom">Dexterity</div>
-                <div id="attribute--dex--score" class="input-field attr-dex"><input type="number" /></div>
-                <div id="attribute--dex--bonuses" class="input-field attr-dex bonus-modifier"><input type="number" disabled /></div>
-                <div id="attribute--dex--adjustment" class="input-field attr-dex"><input type="number" /></div>
-                <div id="attribute--dex--mod" class="input-field attr-dex"><input type="number" disabled /></div>
+                <div id="attribute--dex--score" class="input-field input-field-box attr-dex"><input type="number" /></div>
+                <div id="attribute--dex--bonuses" class="input-field input-field-box attr-dex bonus-modifier"><input type="number" disabled /></div>
+                <div id="attribute--dex--adjustment" class="input-field input-field-box attr-dex"><input type="number" /></div>
+                <div id="attribute--dex--mod" class="input-field input-field-box attr-dex input-field-total"><input type="number" disabled /></div>
             </div>
-            <div id="attributes--con" class="flex-box-container">
+            <div id="attributes--con" class="flex-box-container attribute-entry">
                 <div class="plaque attr-con"><span class="text-top">CON</span><span class="text-bottom">Constitution</div>
-                <div id="attribute--con--score" class="input-field attr-con"><input type="number" /></div>
-                <div id="attribute--con--bonuses" class="input-field attr-con bonus-modifier"><input type="number" disabled /></div>
-                <div id="attribute--con--adjustment" class="input-field attr-con"><input type="number" /></div>
-                <div id="attribute--con--mod" class="input-field attr-con"><input type="number" disabled /></div>
+                <div id="attribute--con--score" class="input-field input-field-box attr-con"><input type="number" /></div>
+                <div id="attribute--con--bonuses" class="input-field input-field-box attr-con bonus-modifier"><input type="number" disabled /></div>
+                <div id="attribute--con--adjustment" class="input-field input-field-box attr-con"><input type="number" /></div>
+                <div id="attribute--con--mod" class="input-field input-field-box attr-con input-field-total"><input type="number" disabled /></div>
             </div>
-            <div id="attributes--int" class="flex-box-container">
+            <div id="attributes--int" class="flex-box-container attribute-entry">
                 <div class="plaque attr-int"><span class="text-top">INT</span><span class="text-bottom">Intelligence</div>
-                <div id="attribute--int--score" class="input-field attr-int"><input type="number" /></div>
-                <div id="attribute--int--bonuses" class="input-field attr-int bonus-modifier"><input type="number" disabled /></div>
-                <div id="attribute--int--adjustment" class="input-field attr-int"><input type="number" /></div>
-                <div id="attribute--int--mod" class="input-field attr-int"><input type="number" disabled /></div>
+                <div id="attribute--int--score" class="input-field input-field-box attr-int"><input type="number" /></div>
+                <div id="attribute--int--bonuses" class="input-field input-field-box attr-int bonus-modifier"><input type="number" disabled /></div>
+                <div id="attribute--int--adjustment" class="input-field input-field-box attr-int"><input type="number" /></div>
+                <div id="attribute--int--mod" class="input-field input-field-box attr-int input-field-total"><input type="number" disabled /></div>
             </div>
-            <div id="attributes--wis" class="flex-box-container">
+            <div id="attributes--wis" class="flex-box-container attribute-entry">
                 <div class="plaque attr-wis"><span class="text-top">WIS</span><span class="text-bottom">Wisdom</div>
-                <div id="attribute--wis--score" class="input-field attr-wis"><input type="number" /></div>
-                <div id="attribute--wis--bonuses" class="input-field attr-wis bonus-modifier"><input type="number" disabled /></div>
-                <div id="attribute--wis--adjustment" class="input-field attr-wis"><input type="number" /></div>
-                <div id="attribute--wis--mod" class="input-field attr-wis"><input type="number" disabled /></div>
+                <div id="attribute--wis--score" class="input-field input-field-box attr-wis"><input type="number" /></div>
+                <div id="attribute--wis--bonuses" class="input-field input-field-box attr-wis bonus-modifier"><input type="number" disabled /></div>
+                <div id="attribute--wis--adjustment" class="input-field input-field-box attr-wis"><input type="number" /></div>
+                <div id="attribute--wis--mod" class="input-field input-field-box attr-wis input-field-total"><input type="number" disabled /></div>
             </div>
-            <div id="attributes--cha" class="flex-box-container">
+            <div id="attributes--cha" class="flex-box-container attribute-entry">
                 <div class="plaque attr-cha"><span class="text-top">CHA</span><span class="text-bottom">Charisma</div>
-                <div id="attribute--cha--score" class="input-field attr-cha"><input type="number" /></div>
-                <div id="attribute--cha--bonuses" class="input-field attr-cha bonus-modifier"><input type="number" disabled /></div>
-                <div id="attribute--cha--adjustment" class="input-field attr-cha"><input type="number" /></div>
-                <div id="attribute--cha--mod" class="input-field attr-cha"><input type="number" disabled /></div>
+                <div id="attribute--cha--score" class="input-field input-field-box attr-cha"><input type="number" /></div>
+                <div id="attribute--cha--bonuses" class="input-field input-field-box attr-cha bonus-modifier"><input type="number" disabled /></div>
+                <div id="attribute--cha--adjustment" class="input-field input-field-box attr-cha"><input type="number" /></div>
+                <div id="attribute--cha--mod" class="input-field input-field-box attr-cha input-field-total"><input type="number" disabled /></div>
             </div>
         </div>
         <div id="hitpoints">
             <p>Character Hitpoints</p>
-            <div class="plaque attr-con">
-                <span class="text-top">HP</span>
-                <span class="text-bottom">Hitpoints</span>
-            </div>
-            <div id="hitpoints--total" class="input-field descriptor-inside attr-con">
-                <input type="number" />
-                <span class="descriptor">Total</span>
-            </div>
-            <div id="hitpoints--dr" class="input-field descriptor-inside attr-con">
-                <input type="number" />
-                <span class="descriptor">DR</span>
-            </div>
-            <div id="hitpoints--current" class="input-field descriptor-inside attr-con">
-                <input type="number" />
-                <span class="descriptor">Current HP</span>
+            <div class="flex-box-container">
+                <div class="plaque attr-con">
+                    <span class="text-top">HP</span>
+                    <span class="text-bottom">Hitpoints</span>
+                </div>
+                <div id="hitpoints--total" class="input-field descriptor-inside attr-con input-field-total">
+                    <input type="number" />
+                    <span class="descriptor">Total</span>
+                </div>
+                <div id="hitpoints--dr" class="input-field descriptor-inside attr-con">
+                    <input type="number" />
+                    <span class="descriptor">DR</span>
+                </div>
+                <div id="hitpoints--current" class="input-field descriptor-inside attr-con">
+                    <input type="number" />
+                    <span class="descriptor">Current HP</span>
+                </div>
             </div>
         </div>
     </div>
     <div id="character--atk-init" class="section hidden character-section">
         <div id="initiative">
             <p>Initiative</p>
-            <div class="plaque attr-dex">
-                <span class="text-top">Initiative</span>
-                <span class="text-bottom">Modifier</span>
-            </div>
-            <div id="initiative--total" class="input-field attr-dex descriptor-inside">
-                <input type="number" disabled />
-                <span class="descriptor">Total</span>
-            </div>
-            <div id="initiative--dex-mod" class="attr-dex input-field attr-modifier descriptor-inside">
-                <input type="number" disabled />
-                <span class="descriptor">Dex Modifier</span>
-            </div>
-            <div id="initiative--bonus" class="input-field bonus-modifier descriptor-inside">
-                <input type="number" disabled />
-                <span class="descriptor">Other Bonuses</span>
-            </div>
-            <div id="initiative--adjustment" class="input-field descriptor-inside">
-                <input type="number" />
-                <span class="descriptor">Temp Adjustment</span>
+            <div class="flex-box-container">
+                <div class="plaque attr-dex">
+                    <span class="text-top">Initiative</span>
+                    <span class="text-bottom">Modifier</span>
+                </div>
+                <div id="initiative--total" class="input-field input-field-box attr-dex descriptor-inside input-field-total">
+                    <input type="number" disabled />
+                    <span class="descriptor">Total</span>
+                </div>
+                <div id="initiative--dex-mod" class="attr-dex input-field input-field-box attr-modifier descriptor-inside">
+                    <input type="number" disabled />
+                    <span class="descriptor">Dex Mod</span>
+                </div>
+                <div id="initiative--bonus" class="input-field input-field-box bonus-modifier descriptor-inside">
+                    <input type="number" disabled />
+                    <span class="descriptor">Bonuses</span>
+                </div>
+                <div id="initiative--adjustment" class="input-field input-field-box descriptor-inside">
+                    <input type="number" />
+                    <span class="descriptor">Adjustment</span>
+                </div>
             </div>
         </div>
         <div id="attacks">
-            <div class="attack-entry" id="attacks--1">
-                <p>Attack one</p>
-                <div id="attacks-1--bab">
-                    <div class="plaque">
-                        <span class="text">Base Attack Bonus</span>
+            <div class="attack-entry" id="attacks-1">
+                <p>First Attack</p>
+                <div id="attacks-1--bab" class="flex-box-container">
+                    <div class="plaque attacks-plaque-size-fixed">
+                        <span class="text">BAB</span>
                     </div>
-                    <div id="attacks-1--bab--total" class="input-field descriptor-inside">
+                    <div class="input-field input-field-box descriptor-inside bab--total input-field-total">
                         <input type="number" disabled />
                         <span class="descriptor">Total</span>
                     </div>
-                    <div id="attacks-1--bab--bonus" class="input-field descriptor-inside">
+                    <div class="input-field input-field-box descriptor-inside bab--base">
                         <input type="number" disabled />
-                        <span class="descriptor">Bonus Modifiers</span>
+                        <span class="descriptor">Base</span>
                     </div>
-                    <div id="attacks-1--bab--adjustment" class="input-field descriptor-inside">
+                    <div class="input-field input-field-box descriptor-inside bab--bonus">
+                        <input type="number" disabled />
+                        <span class="descriptor">Bonuses</span>
+                    </div>
+                    <div class="input-field input-field-box descriptor-inside bab--adjustment">
                         <input type="number" />
-                        <span class="descriptor">Misc Modifier</span>
+                        <span class="descriptor">Adjustment</span>
                     </div>
                 </div>
-                <div id="attacks-1--cmb">
-                    <div class="plaque">
-                        <span class="text">Combat Maneuver Bonus</span>
+                <div id="attacks-1--cmb" class="flex-box-container">
+                    <div class="plaque attacks-plaque-size-fixed">
+                        <span class="text">CMB</span>
                     </div>
-                    <div id="attacks-1--cmb--total" class="input-field descriptor-inside">
+                    <div class="input-field input-field-box descriptor-inside cmb--total input-field-total">
                         <input type="number" disabled />
                         <span class="descriptor">Total</span>
                     </div>
-                    <div id="attacks-1--cmb--base" class="input-field descriptor-inside">
+                    <div class="input-field input-field-box descriptor-inside cmb--base">
                         <input type="number" disabled />
-                        <span class="descriptor">Base Attack Bonus</span>
+                        <span class="descriptor">BAB</span>
                     </div>
-                    <div id="attacks-1--cmb--str-mod" class="input-field descriptor-inside attr-str">
+                    <div class="input-field input-field-box descriptor-inside attr-str cmb--str-mod">
                         <input type="number" disabled />
-                        <span class="descriptor">Strength Modifier</span>
+                        <span class="descriptor">STR Mod</span>
                     </div>
-                    <div id="attacks-1--cmb--size-modifier">
+                    <div class="input-field input-field-box descriptor-inside cmb--size-mod">
                         <input type="number" disabled />
-                        <span class="descriptor">Size Modifier</span>
+                        <span class="descriptor">Size Mod</span>
                     </div>
                 </div>
-                <div id="attacks-1--cmd">
+                <div id="attacks-1--cmd" class="flex-box-container">
                     <div class="plaque">
-                        <span class="text">Combat Maneuver Defense</span>
+                        <span class="text">CMD</span>
                     </div>
-                    <div id="attacks-1--cmd--total" class="input-field descriptor-inside">
+                    <div class="input-field input-field-box descriptor-inside cmd--total input-field-total">
                         <input type="number" disabled />
                         <span class="descriptor">Total</span>
                     </div>
-                    <div id="attacks-1--cmd--base" class="input-field descriptor-inside">
+                    <div class="input-field input-field-box descriptor-inside cmd--base">
                         <input type="number" disabled />
-                        <span class="descriptor">Base Attack Bonus</span>
+                        <span class="descriptor">BAB</span>
                     </div>
-                    <div id="attacks-1--cmd--str-mod" class="input-field descriptor-inside attr-str">
+                    <div class="input-field input-field-box descriptor-inside attr-str cmd--str-mod">
                         <input type="number" disabled />
-                        <span class="descriptor">Strength Modifier</span>
+                        <span class="descriptor">STR Mod</span>
                     </div>
-                    <div id="attacks-1--cmd--dex-mod" class="input-field descriptor-inside attr-dex">
+                    <div class="input-field input-field-box descriptor-inside attr-dex cmd--dex-mod">
                         <input type="number" disabled />
-                        <span class="descriptor">Strength Modifier</span>
+                        <span class="descriptor">DEX Mod</span>
                     </div>
-                    <div id="attacks-1--cmd--size-modifier">
+                    <div class="input-field input-field-box descriptor-inside cmd--size-mod">
                         <input type="number" disabled />
-                        <span class="descriptor">Size Modifier</span>
+                        <span class="descriptor">Size Mod</span>
                     </div>
-                    <div id="attacks-1--cmd--base">
+                    <div class="input-field input-field-box descriptor-inside cmd--base">
                         <input type="number" value="10" disabled />
+                        <span class="descriptor">Base</span>
                     </div>
                 </div>
             </div>
@@ -301,182 +310,190 @@
         <div id="armor_classes">
             <p>Armor Classes</p>
             <div id="ac">
-                <div class="plaque">
-                    <span class="text-top">AC</span>
-                    <span class="text-bottom">Armor Class</span>
+                <div class="flex-box-container">
+                    <div class="plaque">
+                        <span class="text-top">AC</span>
+                        <span class="text-bottom">Armor Class</span>
+                    </div>
+                    <div id="ac--total" class="input-field input-field-box descriptor-inside input-field-total">
+                        <input type="number" disabled />
+                        <span class="descriptor">Total</span>
+                    </div>
+                    <div id="ac--base" class="input-field input-field-box descriptor-inside">
+                        <input type="number" value="10" disabled />
+                        <span class="descriptor">Base</span>
+                    </div>
+                    <div id="ac--dex-modifier" class="input-field input-field-box descriptor-inside">
+                        <input type="number" disabled />
+                        <span class="descriptor">Dex Mod</span>
+                    </div>
+                    <div id="ac--size-modifier" class="input-field input-field-box descriptor-inside">
+                        <input type="number" disabled />
+                        <span class="descriptor">Size Mod</span>
+                    </div>
+                    <div id="ac--bonus-modifier" class="input-field input-field-box bonus-modifier descriptor-inside">
+                        <input type="number" disabled />
+                        <span class="descriptor">Bonus</span>
+                    </div>
                 </div>
-                <div id="ac--total" class="input-field descriptor-inside">
-                    <input type="number" disabled />
-                    <span class="descriptor">Total</span>
-                </div>
-                <div id="ac--base" class="input-field">
-                    <input type="number" value="10" disabled />
-                </div>
-                <div id="ac--dex-modifier" class="input-field descriptor-inside">
-                    <input type="number" disabled />
-                    <span class="descriptor">Dex Modifier</span>
-                </div>
-                <div id="ac--size-modifier" class="input-field descriptor-inside">
-                    <input type="number" disabled />
-                    <span class="descriptor">Size Modifier</span>
-                </div>
-                <div id="ac--bonus-modifier" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                    <span class="descriptor">Bonus Modifier</span>
-                </div>
-                <div id="ac--armor-bonus" class="input-field descriptor-inside">
-                    <input type="number" />
-                    <span class="descriptor">Armor Bonus</span>
-                </div>
-                <div id="ac--shield-bonus" class="input-field descriptor-inside">
-                    <input type="number" />
-                    <span class="descriptor">Shield Bonus</span>
-                </div>
-                <div id="ac--natural-armor" class="input-field descriptor-inside">
-                    <input type="number" />
-                    <span class="descriptor">Natural Armor</span>
-                </div>
-                <div id="ac--deflection-modifier" class="input-field descriptor-inside">
-                    <input type="number" />
-                    <span class="descriptor">Deflection Modifier</span>
-                </div>
-                <div id="ac--adjustment" class="input-field descriptor-inside">
-                    <input type="number" />
-                    <span class="descriptor">Misc Modifier</span>
+                <div class="flex-box-container">
+                    <div class="plaque-placeholder"></div>
+                    <div id="ac--armor-bonus" class="input-field input-field-box descriptor-inside input-field-total">
+                        <input type="number" />
+                        <span class="descriptor">Armor</span>
+                    </div>
+                    <div id="ac--shield-bonus" class="input-field input-field-box descriptor-inside">
+                        <input type="number" />
+                        <span class="descriptor">Shield</span>
+                    </div>
+                    <div id="ac--natural-armor" class="input-field input-field-box descriptor-inside">
+                        <input type="number" />
+                        <span class="descriptor">Natural</span>
+                    </div>
+                    <div id="ac--deflection-modifier" class="input-field input-field-box descriptor-inside">
+                        <input type="number" />
+                        <span class="descriptor small">Deflection</span>
+                    </div>
+                    <div id="ac--adjustment" class="input-field input-field-box descriptor-inside">
+                        <input type="number" />
+                        <span class="descriptor">Adjust</span>
+                    </div>
                 </div>
             </div>
-            <div id="ac--touch">
+            <div id="ac--touch" class="flex-box-container">
                 <div class="plaque">
                     <span class="text-top">Touch</span>
                     <span class="text-bottom">Armor Class</span>
                 </div>
-                <div id="ac--touch--total" class="input-field descriptor-inside">
+                <div id="ac--touch--total" class="input-field input-field-box descriptor-inside input-field-total">
                     <input type="number" disabled />
                     <span class="descriptor">Total</span>
                 </div>
-                <div id="ac--touch--bonus" class="input-field descriptor-inside bonus-modifier">
+                <div id="ac--touch--bonus" class="input-field input-field-box descriptor-inside bonus-modifier">
                     <input type="number" disabled />
-                    <span class="descriptor">Bonus Modifier</span>
+                    <span class="descriptor">Bonus</span>
                 </div>
-                <div id="ac--touch--main" class="input-field">
+                <div id="ac--touch--main" class="input-field input-field-box descriptor-inside">
                     <input type="number" />
+                    <span class="descriptor">Adjustment</span>
                 </div>
             </div>
-            <div id="ac--flat-footed">
+            <div id="ac--flat-footed" class="flex-box-container">
                 <div class="plaque">
                     <span class="text-top">Flat-Footed</span>
                     <span class="text-bottom">Armor Class</span>
                 </div>
-                <div id="ac--flat-footed--total" class="input-field descriptor-inside">
+                <div id="ac--flat-footed--total" class="input-field input-field-box descriptor-inside input-field-total">
                     <input type="number" disabled />
                     <span class="descriptor">Total</span>
                 </div>
-                <div id="ac--flat-footed--bonus" class="input-field descriptor-inside bonus-modifier">
+                <div id="ac--flat-footed--bonus" class="input-field input-field-box descriptor-inside bonus-modifier">
                     <input type="number" disabled />
-                    <span class="descriptor">Bonus Modifier</span>
+                    <span class="descriptor">Bonus</span>
                 </div>
-                <div id="ac--flat-footed--main" class="input-field">
+                <div id="ac--flat-footed--main" class="input-field input-field-box descriptor-inside">
                     <input type="number" />
+                    <span class="descriptor">Adjustment</span>
                 </div>
             </div>
-            <div id="ac--sr">
+            <div id="ac--sr" class="flex-box-container">
                 <div class="plaque">
                     <span class="text">Spell Resistance</span>
                 </div>
-                <div id="ac--sr--total" class="input-field descriptor-inside">
+                <div id="ac--sr--total" class="input-field input-field-box descriptor-inside input-field-total">
                     <input type="number" disabled />
                     <span class="descriptor">Total</span>
                 </div>
-                <div id="ac--sr--bonus" class="input-field descriptor-inside">
+                <div id="ac--sr--bonus" class="input-field input-field-box descriptor-inside">
                     <input type="number" disabled />
-                    <span class="descriptor">Bonus Modifiers</span>
+                    <span class="descriptor">Bonus</span>
                 </div>
-                <div id="ac--sr--adjustment" class="input-field descriptor-inside">
+                <div id="ac--sr--adjustment" class="input-field input-field-box descriptor-inside">
                     <input type="number" />
-                    <span class="descriptor">Misc Modifier</span>
+                    <span class="descriptor">Adjustment</span>
                 </div>
             </div>
         </div>
         <div id="savings">
             <p>Savings</p>
-            <div id="savings--descriptors">
-                <span class="descriptor">Saving Throw</span>
+            <div id="savings--descriptors" class="flex-box-container">
+                <span class="descriptor"></span>
                 <span class="descriptor">Total</span>
-                <span class="descriptor">Base Save</span>
-                <span class="descriptor">Ability Modifier</span>
+                <span class="descriptor">Base</span>
+                <span class="descriptor">Ability Mod</span>
                 <span class="descriptor">Bonus</span>
-                <span class="descriptor">Magic Modifier</span>
-                <span class="descriptor">Adjustment</span>
+                <span class="descriptor">Magic Mod</span>
+                <span class="descriptor">Adjust</span>
             </div>
-            <div id="savings--fortitude">
+            <div id="savings--fortitude" class="flex-box-container">
                 <div class="plaque attr-con">
                     <span class="text-top">Fortitude</span>
                     <span class="text-bottom">(Constitution)</span>
                 </div>
-                <div id="savings--fortitude--total" class="input-field attr-con">
+                <div id="savings--fortitude--total" class="input-field input-field-box attr-con">
                     <input type="number" disabled />
                 </div>
-                <div id="savings--fortitude--base" class="input-field">
+                <div id="savings--fortitude--base" class="input-field input-field-box">
                     <input type="number" disabled />
                 </div>
-                <div id="savings--fortitude--ability-mod" class="input-field attr-con">
+                <div id="savings--fortitude--ability-mod" class="input-field input-field-box attr-con">
                     <input type="number" disabled />
                 </div>
-                <div id="savings--fortitude--bonus" class="input-field bonus-modifier">
+                <div id="savings--fortitude--bonus" class="input-field input-field-box bonus-modifier">
                     <input type="number" disabled />
                 </div>
-                <div id="savings--fortitude--magic-mod" class="input-field">
+                <div id="savings--fortitude--magic-mod" class="input-field input-field-box">
                     <input type="number" />
                 </div>
-                <div id="savings--fortitude--adjustment" class="input-field">
+                <div id="savings--fortitude--adjustment" class="input-field input-field-box">
                     <input type="number" />
                 </div>
             </div>
-            <div id="savings--reflex">
+            <div id="savings--reflex" class="flex-box-container">
                 <div class="plaque attr-dex">
                     <span class="text-top">Reflex</span>
                     <span class="text-bottom">(Dexterity)</span>
                 </div>
-                <div id="savings--reflex--total" class="input-field attr-dex">
+                <div id="savings--reflex--total" class="input-field input-field-box attr-dex">
                     <input type="number" disabled />
                 </div>
-                <div id="savings--reflex--base" class="input-field">
+                <div id="savings--reflex--base" class="input-field input-field-box">
                     <input type="number" disabled />
                 </div>
-                <div id="savings--reflex--ability-mod" class="input-field attr-dex">
+                <div id="savings--reflex--ability-mod" class="input-field input-field-box attr-dex">
                     <input type="number" disabled />
                 </div>
-                <div id="savings--reflex--bonus" class="input-field bonus-modifier">
+                <div id="savings--reflex--bonus" class="input-field input-field-box bonus-modifier">
                     <input type="number" disabled />
                 </div>
-                <div id="savings--reflex--magic-mod" class="input-field">
+                <div id="savings--reflex--magic-mod" class="input-field input-field-box">
                     <input type="number" />
                 </div>
-                <div id="savings--reflex--adjustment" class="input-field">
+                <div id="savings--reflex--adjustment" class="input-field input-field-box">
                     <input type="number" />
                 </div>
             </div>
-            <div id="savings--will">
+            <div id="savings--will" class="flex-box-container">
                 <div class="plaque attr-wis">
                     <span class="text-top">Will</span>
                     <span class="text-bottom">(Wisdom)</span>
                 </div>
-                <div id="savings--will--total" class="input-field attr-wis">
+                <div id="savings--will--total" class="input-field input-field-box attr-wis">
                     <input type="number" disabled />
                 </div>
-                <div id="savings--will--base" class="input-field">
+                <div id="savings--will--base" class="input-field input-field-box">
                     <input type="number" disabled />
                 </div>
-                <div id="savings--will--ability-mod" class="input-field attr-wis">
+                <div id="savings--will--ability-mod" class="input-field input-field-box attr-wis">
                     <input type="number" disabled />
                 </div>
-                <div id="savings--will--bonus" class="input-field bonus-modifier">
+                <div id="savings--will--bonus" class="input-field input-field-box bonus-modifier">
                     <input type="number" disabled />
                 </div>
-                <div id="savings--will--magic-mod" class="input-field">
+                <div id="savings--will--magic-mod" class="input-field input-field-box">
                     <input type="number" />
                 </div>
-                <div id="savings--will--adjustment" class="input-field">
+                <div id="savings--will--adjustment" class="input-field input-field-box">
                     <input type="number" />
                 </div>
             </div>
@@ -485,791 +502,34 @@
     <div id="character--skills" class="section hidden character-section">
         <div id="skills">
             <p>Skills</p>
-            <div id="skills--descriptors">
-                <span class="descriptor">Skill Name</span>
-                <span class="descriptor">Total Bonus</span>
-                <span class="descriptor">Ability Modifier</span>
-                <span class="descriptor">Bonus</span>
-                <span class="descriptor">Ranks</span>
-                <span class="descriptor">Misc Modifier</span>
-            </div>
-            <div id="skills--acrobatics">
-                <div class="skill-name attr-dex">Acrobatics</div>
-                <div class="skill-attribute attr-dex">dex</div>
-                <div id="skills--acrobatics--total" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--acrobatics--ability-mod" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--acrobatics--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--acrobatics--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--acrobatics--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--appraise">
-                <div class="skill-name attr-int">Appraise</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--appraise--total" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--appraise--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--appraise--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--appraise--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--appraise--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--bluff">
-                <div class="skill-name attr-cha">Bluff</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills--bluff--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--bluff--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--bluff--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--bluff--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--bluff--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--climb">
-                <div class="skill-name attr-str">Climb</div>
-                <div class="skill-attribute attr-str">str</div>
-                <div id="skills--climb--total" class="input-field attr-str">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--climb--ability-mod" class="input-field attr-str">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--climb--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--climb--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--climb--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--diplomacy">
-                <div class="skill-name attr-cha">Diplomacy</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills--diplomacy--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--diplomacy--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--diplomacy--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--diplomacy--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--diplomacy--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--disable_device" class="trained">
-                <div class="skill-name attr-dex">Disable Device</div>
-                <div class="skill-attribute attr-dex">dex</div>
-                <div id="skills--disable_device--total" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--disable_device--ability-mod" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--disable_device--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--disable_device--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--disable_device--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--disguise">
-                <div class="skill-name attr-cha">Disguise</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills--disguise--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--disguise--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--disguise--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--disguise--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--disguise--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--escape_artist">
-                <div class="skill-name attr-dex">Escape Artist</div>
-                <div class="skill-attribute attr-dex">dex</div>
-                <div id="skills--escape_artist--total" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--escape_artist--ability-mod" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--escape_artist--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--escape_artist--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--escape_artist--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--fly">
-                <div class="skill-name attr-dex">Fly</div>
-                <div class="skill-attribute attr-dex">dex</div>
-                <div id="skills--fly--total" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--fly--ability-mod" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--fly--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--fly--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--fly--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--handle_animal">
-                <div class="skill-name attr-cha">Handle Animal</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills--handle_animal--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--handle_animal--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--handle_animal--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--handle_animal--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--handle_animal--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--heal">
-                <div class="skill-name attr-wis">Heal</div>
-                <div class="skill-attribute attr-wis">wis</div>
-                <div id="skills--heal--total" class="input-field attr-wis">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--heal--ability-mod" class="input-field attr-wis">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--heal--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--heal--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--heal--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--intimidate">
-                <div class="skill-name attr-cha">Intimidate</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills--intimidate--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--intimidate--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--intimidate--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--intimidate--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--intimidate--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--knowledge_arcana" class="trained">
-                <div class="skill-name attr-int">Knowledge Arcana</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--knowledge_arcana--total" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_arcana--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_arcana--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_arcana--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--knowledge_arcana--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--knowledge_dungeoneering" class="trained">
-                <div class="skill-name attr-int">Knowledge Dungeoneering</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--knowledge_dungeoneering--total" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_dungeoneering--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_dungeoneering--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_dungeoneering--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--knowledge_dungeoneering--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--knowledge_engineering" class="trained">
-                <div class="skill-name attr-int">Knowledge Engineering</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--knowledge_engineering--total" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_engineering--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_engineering--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_engineering--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--knowledge_engineering--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--knowledge_geography" class="trained">
-                <div class="skill-name attr-int">Knowledge Geography</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--knowledge_geography--total" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_geography--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_geography--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_geography--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--knowledge_geography--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--knowledge_history" class="trained">
-                <div class="skill-name attr-int">Knowledge History</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--knowledge_history--total" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_history--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_history--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_history--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--knowledge_history--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--knowledge_local" class="trained">
-                <div class="skill-name attr-int">Knowledge Local</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--knowledge_local--total" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_local--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_local--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_local--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--knowledge_local--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--knowledge_nature" class="trained">
-                <div class="skill-name attr-int">Knowledge Nature</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--knowledge_nature--total" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_nature--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_nature--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_nature--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--knowledge_nature--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--knowledge_nobility" class="trained">
-                <div class="skill-name attr-int">Knowledge Nobility</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--knowledge_nobility--total" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_nobility--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_nobility--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_nobility--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--knowledge_nobility--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--knowledge_planes" class="trained">
-                <div class="skill-name attr-int">Knowledge Planes</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--knowledge_local--planes" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_planes--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_planes--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_planes--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--knowledge_planes--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--knowledge_religion" class="trained">
-                <div class="skill-name attr-int">Knowledge Religion</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--knowledge_religion--total" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_religion--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_religion--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--knowledge_religion--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--knowledge_religion--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--linguistics" class="trained">
-                <div class="skill-name attr-int">Linguistics</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--linguistics--total" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--linguistics--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--linguistics--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--linguistics--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--linguistics--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--perception">
-                <div class="skill-name attr-wis">Perception</div>
-                <div class="skill-attribute attr-wis">wis</div>
-                <div id="skills--perception--total" class="input-field attr-wis">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perception--ability-mod" class="input-field attr-wis">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perception--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perception--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--perception--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--perform_act">
-                <div class="skill-name attr-cha">perform_act</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills-perform_act--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_act--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_act--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_act--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--perform_act--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--perform_comedy">
-                <div class="skill-name attr-cha">perform_comedy</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills-perform_comedy--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_comedy--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_comedy--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_comedy--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--perform_comedy--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--perform_dance">
-                <div class="skill-name attr-cha">perform_dance</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills-perform_dance--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_dance--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_dance--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_dance--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--perform_dance--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--perform_keyboard_instruments">
-                <div class="skill-name attr-cha">perform_keyboard_instruments</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills-perform_keyboard_instruments--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_keyboard_instruments--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_keyboard_instruments--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_keyboard_instruments--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--perform_keyboard_instruments--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--perform_oratory">
-                <div class="skill-name attr-cha">perform_oratory</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills-perform_oratory--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_oratory--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_oratory--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_oratory--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--perform_oratory--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--perform_percussion_instruments">
-                <div class="skill-name attr-cha">perform_percussion_instruments</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills-perform_percussion_instruments--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_percussion_instruments--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_percussion_instruments--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_percussion_instruments--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--perform_percussion_instruments--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--perform_string_instruments">
-                <div class="skill-name attr-cha">perform_string_instruments</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills-perform_string_instruments--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_string_instruments--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_string_instruments--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_string_instruments--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--perform_string_instruments--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--perform_wind_instruments">
-                <div class="skill-name attr-cha">perform_wind_instruments</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills-perform_wind_instruments--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_wind_instruments--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_wind_instruments--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_wind_instruments--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--perform_wind_instruments--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--perform_sing">
-                <div class="skill-name attr-cha">perform_sing</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills-perform_sing--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_sing--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_sing--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--perform_sing--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--perform_sing--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--ride">
-                <div class="skill-name attr-dex">Ride</div>
-                <div class="skill-attribute attr-dex">dex</div>
-                <div id="skills--ride--total" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--ride--ability-mod" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--ride--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--ride--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--ride--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--sense_motive">
-                <div class="skill-name attr-wis">Sense Motive</div>
-                <div class="skill-attribute attr-wis">wis</div>
-                <div id="skills--sense_motive--total" class="input-field attr-wis">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--sense_motive--ability-mod" class="input-field attr-wis">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--sense_motive--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--sense_motive--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--sense_motive--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--sleight_of_hand">
-                <div class="skill-name attr-dex">Sleight of Hand</div>
-                <div class="skill-attribute attr-dex">dex</div>
-                <div id="skills--sleight_of_hand--total" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--sleight_of_hand--ability-mod" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--sleight_of_hand--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--sleight_of_hand--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--sleight_of_hand--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--spellcraft">
-                <div class="skill-name attr-int">Spellcraft</div>
-                <div class="skill-attribute attr-int">int</div>
-                <div id="skills--spellcraft--total" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--spellcraft--ability-mod" class="input-field attr-int">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--spellcraft--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--spellcraft--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--spellcraft--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--stealth">
-                <div class="skill-name attr-dex">Stealth</div>
-                <div class="skill-attribute attr-dex">dex</div>
-                <div id="skills--stealth--total" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--stealth--ability-mod" class="input-field attr-dex">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--stealth--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--stealth--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--stealth--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--survival">
-                <div class="skill-name attr-wis">Survival</div>
-                <div class="skill-attribute attr-wis">wis</div>
-                <div id="skills--survival--total" class="input-field attr-wis">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--survival--ability-mod" class="input-field attr-wis">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--survival--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--survival--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--survival--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--swim">
-                <div class="skill-name attr-str">Swim</div>
-                <div class="skill-attribute attr-str">str</div>
-                <div id="skills--swim--total" class="input-field attr-str">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--swim--ability-mod" class="input-field attr-str">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--swim--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--swim--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--swim--misc-mod" class="input-field">
-                    <input type="number" />
-                </div>
-            </div>
-            <div id="skills--use_magic_device">
-                <div class="skill-name attr-cha">Use Magic Device</div>
-                <div class="skill-attribute attr-cha">cha</div>
-                <div id="skills--use_magic_device--total" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--use_magic_device--ability-mod" class="input-field attr-cha">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--use_magic_device--bonus" class="input-field bonus-modifier">
-                    <input type="number" disabled />
-                </div>
-                <div id="skills--use_magic_device--ranks" class="input-field">
-                    <input type="number" />
-                </div>
-                <div id="skills--use_magic_device--misc-mod" class="input-field">
-                    <input type="number" />
+            <div id="skills-list">
+                <div class="skill-entry">
+                    <div class="skill-description attr-dex">
+                        <span class="name">Acrobatics</span>
+                        <span class="attribute">(dex)</span>
+                    </div>
+                </div>
+                <div class="skill-modifiers flex-box-container">
+                    <div id="skills--acrobatics--total" class="input-field attr-dex descriptor-inside input-field-total">
+                        <input type="number" disabled />
+                        <span class="descriptor">Total</span>
+                    </div>
+                    <div id="skills--acrobatics--ability-mod" class="input-field attr-dex descriptor-inside">
+                        <input type="number" disabled />
+                        <span class="descriptor">Ability Mod</span>
+                    </div>
+                    <div id="skills--acrobatics--bonus" class="input-field bonus-modifier descriptor-inside">
+                        <input type="number" disabled />
+                        <span class="descriptor">Bonus</span>
+                    </div>
+                    <div id="skills--acrobatics--ranks" class="input-field descriptor-inside">
+                        <input type="number" />
+                        <span class="descriptor">Ranks</span>
+                    </div>
+                    <div id="skills--acrobatics--adjustment" class="input-field descriptor-inside">
+                        <input type="number" />
+                        <span class="descriptor">Adjustment</span>
+                    </div>
                 </div>
             </div>
         </div>

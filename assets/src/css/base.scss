@@ -1,7 +1,8 @@
 :root {
     --background-color: rgb(249, 215, 143);
     --color: rgb(44, 0, 2);
-    --color-50: rgba(44, 0, 2, 0.5);
+    --input-background-color: rgb(249, 202, 99);
+    --input-disabled-background-color: rgb(249, 234, 199);
 }
 
 * {
@@ -71,7 +72,7 @@ button:focus, input:focus, select:focus {
 input {
     border: none;
     border-bottom: 1px solid var(--color);
-    background-color: var(--background-color);
+    background-color: var(--input-background-color);
 }
 
 input[type="number"] {
@@ -85,7 +86,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 select {
-    background-color: var(--background-color);
+    background-color: var(--input-background-color);
     border: none;
     border-bottom: 1px solid var(--color);
 }
@@ -97,7 +98,7 @@ input[type="submit"] {
 button, input[type="submit"] {
     cursor: pointer;
     outline: none;
-    background-color: var(--background-color);
+    background-color: var(--input-background-color);
     border: 1px solid var(--color);
     border-radius: 5px;
     box-shadow: 1px 1px 2px var(--color-50);
@@ -129,7 +130,7 @@ form {
     background-color: var(--background-color);
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid var(--color-50);
+    border: 1px solid var(--color);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
     transition: visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
 }
@@ -147,6 +148,15 @@ form {
 
 .flex-box-container {
     display: flex;
+}
+
+.flex-box-container>div {
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.flex-box-container>div:first-child {
+    margin-left: 0px;
 }
 
 nav#main-nav {
@@ -286,6 +296,7 @@ div#controls {
 div#character {
     position: relative;
     height: calc(100% - 80px);
+    max-width: 400px;
 
     .character-section {
         height: 100%;
@@ -297,9 +308,14 @@ div#character {
         padding: 0px;
     }
 
+    .input-field-total {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
     .input-field {
         display: inline-block;
-        margin-top: 5px;
+        // margin-top: 5px;
     }
 
     .input-field.descriptor-below {
@@ -322,7 +338,21 @@ div#character {
         }
 
         span.descriptor {
+            position: absolute;
+            font-size: 0.65em;
+            top: 0px;
+            left: 0px;
+        }
 
+        span.descriptor.small {
+            font-size: 0.5em;
+        }
+    }
+
+    .input-field-box.descriptor-inside {
+        span.descriptor {
+            top: 2px;
+            left: 2px;
         }
     }
 
@@ -340,6 +370,13 @@ div#character {
 
     .column-50:first-child {
         margin-left: 0px;
+    }
+
+    .plaque,
+    .plaque-placeholder {
+        display: inline-block;
+        padding: 5px;
+        height: 40px;
     }
 
     .plaque {
@@ -368,6 +405,32 @@ div#character {
             font-size: 0.65em;
             position: relative;
             top: -7px;
+        }
+    }
+
+    .input-field-box {
+        input {
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--color);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        input:disabled {
+            background-color: var(--input-disabled-background-color);
+            color: var(--color);
+            border: var(--input-background-color);
+        }
+
+        input:disabled + span.descriptor {
+            color: var(--color);
+        }
+    }
+
+    .input-field {
+        input:disabled {
+            background-color: var(--input-disabled-background-color);
         }
     }
 
@@ -409,23 +472,152 @@ div#character {
                 width: 20%;
                 font-size: 0.8em;
             }
+
+            span:first-child {
+                width: 100px;
+            }
         }
+
+        .plaque {
+            width: 100px;
+        }
+
+        .attribute-entry {
+            height: 45px;
+        }
+
+        .input-field {
+            font-size: 1em;
+            vertical-align: middle;
+            width: 20%;
+            height: 40px;
+        }
+    }
+
+    div#hitpoints {
+        margin-top: 10px;
 
         .plaque {
             width: 20%;
         }
 
         .input-field {
-            display: flex;
-            font-size: 1em;
-            vertical-align: middle;
-            width: 20%;
-            padding-left: 5px;
-            padding-right: 5px;
             height: 40px;
 
             input {
-                width: 100%;
+                padding-left: 10px;
+                margin-top: 15px;
+            }
+        }
+
+        .flex-box-container>div {
+            margin-left: 10px;
+        }
+
+        .flex-box-container>div:first-child {
+            margin-left: 0px;
+        }
+    }
+
+    div#attacks {
+        margin-top: 10px;
+
+        .plaque {
+            width: 105px;
+        }
+
+        .attack-entry>div {
+            margin-top: 5px;
+        }
+
+        .attack-entry>div:first-child {
+            margin-top: 0px;
+        }
+
+        .cmd--dex-mod,
+        .cmd--str-mod,
+        .cmd--size-mod {
+            .descriptor {
+                font-size: 0.5em;
+            }
+        }
+    }
+
+    div#ac {
+        .plaque,
+        .plaque-placeholder {
+            width: 220px;
+        }
+
+        .flex-box-container {
+            height: 40px;
+            margin-top: 5px;
+        }
+
+        .flex-box-container:first-child {
+            margin-top: 0px;
+        }
+    }
+
+    div#ac--touch,
+    div#ac--flat-footed,
+    div#ac--sr {
+        margin-top: 15px;
+
+        .plaque {
+            width: 200px;
+        }
+    }
+
+    div#ac--sr {
+        .plaque {
+            font-size: 0.8em;
+            span.text {
+                margin-top: 0px;
+            }
+        }
+    }
+
+    div#savings {
+        margin-top: 10px;
+
+        .flex-box-container {
+            margin-top: 5px;
+        }
+        .flex-box-container:first-child {
+            margin-top: 0px;
+        }
+
+        #savings--descriptors {
+            span {
+                display: block;
+                margin-left: 5px;
+                width: 12%;
+                font-size: 0.8em;
+                align-self: flex-end;
+            }
+
+            span:first-child {
+                margin-left: 0px;
+                width: 28%;
+            }
+        }
+
+        .plaque {
+            width: 100%;
+        }
+    }
+
+    div#skills {
+        .skill-modifiers {
+            height: 40px;
+
+            .input-field {
+                height: 100%;
+
+                input {
+                    height: 100%;
+                }
             }
         }
     }
