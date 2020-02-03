@@ -23,7 +23,7 @@ class Views(object):
             flash('Could not retrieve the character.', 'error')
             return redirect(url_for('characters'))
 
-        return render_template('character.html')
+        return render_template('character.html', charid=charid)
 
     def new_character(self):
         char_class = request.form.get('class', default=None)
