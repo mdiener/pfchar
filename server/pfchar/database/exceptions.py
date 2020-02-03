@@ -18,7 +18,7 @@ class CharacterError(DatabaseError):
     pass
 
 
-class CharacterWrongUserIdError(CharacterError):
+class CharacterWrongUserError(CharacterError):
     pass
 
 
