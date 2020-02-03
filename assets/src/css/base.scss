@@ -366,6 +366,7 @@ div#character {
         width: calc(50% - 5px);
         display: inline-block;
         margin-left: 5px;
+        vertical-align: top;
     }
 
     .column-50:first-child {
@@ -459,6 +460,16 @@ div#character {
     #speed>div {
         display: inline-block;
         margin-top: 10px;
+    }
+
+    #character--lvl-classes {
+        #level {
+            width: 100%;
+        }
+
+        #experience, #growth {
+            width: 50%;
+        }
     }
 
     #attributes {
