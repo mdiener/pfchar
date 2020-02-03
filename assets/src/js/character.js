@@ -1,7 +1,6 @@
 import {sections} from './sections.js';
-import {controls} from './character/controls.js';
+import {main} from './character/control/main.js'
 
 window.onload = () => {
-    sections.hideAll();
-    sections.show('#character--main');
+    main();
 };

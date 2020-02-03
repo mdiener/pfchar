@@ -1,18 +1,20 @@
-import {sections} from '../sections.js';
-
+import {sections} from '../../sections.js';
 
 class Controls {
     constructor() {
+        sections.hideAll();
+        sections.show('#character--main');
+
         document.querySelectorAll('.character-controls-btn').forEach((btnEl, i) => {
             btnEl.addEventListener('click', (e) => {
                 let id = e.currentTarget.getAttribute('id');
                 let target = id.split('--');
-                if (target[0] == 'controls') this._goTo(target[1]);
+                if (target[0] == 'controls') this.goTo(target[1]);
             });
         });
     }
 
-    _goBack() {
+    goBack() {
         let sectionEls = document.querySelectorAll('.section.character-section');
         let index = 0;
 
@@ -30,7 +32,7 @@ class Controls {
         }
     }
 
-    _goForward() {
+    goForward() {
         let sectionEls = document.querySelectorAll('.section.character-section');
         let index = 0;
 
@@ -48,11 +50,11 @@ class Controls {
         }
     }
 
-    _goTo(target) {
+    goTo(target) {
         if (target == 'back') {
-            this._goBack();
+            this.goBack();
         } else if (target == 'forward') {
-            this._goForward();
+            this.goForward();
         } else {
             sections.hideAll();
             sections.show('#character--' + target);
