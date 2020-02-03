@@ -1,11 +1,12 @@
 import json
 import redis
 from redis.exceptions import RedisError
-from pfchar.settings import DB_HOST, DB_PORT, DB_NR
+from pfchar.settings import DB_HOST, DB_PORT, DB_NR, SESSION_DB_NR
 from pfchar.database.exceptions import DatabaseError
 
 
 redis_instance = redis.Redis(host=DB_HOST, port=DB_PORT, db=DB_NR)
+redis_instance_sessions = redis.Redis(host=DB_HOST, port=DB_PORT, db=SESSION_DB_NR)
 
 
 def r_get(key, *args):
