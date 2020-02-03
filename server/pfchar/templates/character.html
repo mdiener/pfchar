@@ -3,12 +3,13 @@
 {% block content %}
 <div id="controls">
     <button class="btn character-controls-btn" id="controls--main">Basics</button>
+    <button class="btn character-controls-btn" id="controls--lvl-classes">Level & Classes</button>
     <button class="btn character-controls-btn" id="controls--attr-hp">Attributes & HP</button>
     <button class="btn character-controls-btn" id="controls--atk-init">Attack & Initiative</button>
     <button class="btn character-controls-btn" id="controls--ac-savings">AC & Savings</button>
     <button class="btn character-controls-btn" id="controls--skills">Skills</button>
 </div>
-<div id="character">
+<div id="character" data-charid="{{ charid }}">
     <div id="character--main" class="section hidden character-section">
         <div id="basics">
             <p>Basic Character Information</p>
@@ -22,12 +23,8 @@
                         <input type="text" />
                         <span class="descriptor">Alignment</span>
                     </div>
-                    <div id="basics--level" class="input-field descriptor-below">
-                        <input type="text" />
-                        <span class="descriptor">Level</span>
-                    </div>
                     <div id="basics--race" class="input-field descriptor-below">
-                        <input type="text" />
+                        <input type="text" disabled />
                         <span class="descriptor">Race</span>
                     </div>
                     <div id="basics--deity" class="input-field descriptor-below">
@@ -42,12 +39,12 @@
                         <input type="text" />
                         <span class="descriptor">Gender</span>
                     </div>
-                </div>
-                <div class="column-50">
                     <div id="basics--age" class="input-field descriptor-below">
                         <input type="text" />
                         <span class="descriptor">Age</span>
                     </div>
+                </div>
+                <div class="column-50">
                     <div id="basics--height" class="input-field descriptor-below">
                         <input type="text" />
                         <span class="descriptor">Height</span>
@@ -126,6 +123,37 @@
         <div id="languages">
             <div id="languages--basic"></div>
             <div id="languages--extended"></div>
+        </div>
+    </div>
+    <div id="character--lvl-classes" class="section hidden character-section">
+        <div>
+            <p>Level & Experience</p>
+            <div id="level" class="input-field descriptor-below">
+                <input type="text" />
+                <span class="descriptor">Level</span>
+            </div>
+            <div class="flex-box-container">
+                <div id="experience" class="input-field descriptor-below">
+                    <input type="text" />
+                    <span class="descriptor">Experience</span>
+                </div>
+                <div id="growth" class="input-field descriptor-below">
+                    <input type="text" />
+                    <span class="descriptor">Growth</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p>Character Classes</p>
+            <div id="classes">
+                <div id="classes--list"></div>
+                <div id="classes--add-class">
+                    <select>
+                        <option selected="selected" hidden>Select A New Class</option>
+                        <option value="occultist">Occultist</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </div>
     <div id="character--attr-hp" class="section hidden character-section">
