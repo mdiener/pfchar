@@ -2,7 +2,7 @@
 
 {% block content %}
 <div id="controls">
-    <button class="btn character-controls-btn" id="controls--main">Basics</button>
+    <button class="btn character-controls-btn" id="controls--basics">Basics</button>
     <button class="btn character-controls-btn" id="controls--lvl-classes">Level & Classes</button>
     <button class="btn character-controls-btn" id="controls--attr-hp">Attributes & HP</button>
     <button class="btn character-controls-btn" id="controls--atk-init">Attack & Initiative</button>
@@ -10,59 +10,64 @@
     <button class="btn character-controls-btn" id="controls--skills">Skills</button>
 </div>
 <div id="character" data-charid="{{ charid }}">
-    <div id="character--main" class="section hidden character-section">
+
+
+
+
+
+    <!-- <div id="character--main" class="section hidden character-section">
         <div id="basics">
             <p>Basic Character Information</p>
             <div id="basics--name" class="input-field descriptor-below">
-                <input type="text" />
+                <input data-path="basics.name" type="text" />
                 <span class="descriptor">Name</span>
             </div>
             <div class="input-field-group">
                 <div class="column-50">
                     <div id="basics--alignment" class="input-field descriptor-below">
-                        <input type="text" />
+                        <input data-path="basics.alignment" type="text" />
                         <span class="descriptor">Alignment</span>
                     </div>
                     <div id="basics--race" class="input-field descriptor-below">
-                        <input type="text" disabled />
+                        <input data-path="basics.race" type="text" disabled />
                         <span class="descriptor">Race</span>
                     </div>
                     <div id="basics--deity" class="input-field descriptor-below">
-                        <input type="text" />
+                        <input data-path="basics.deity" type="text" />
                         <span class="descriptor">Deity</span>
                     </div>
                     <div id="basics--size" class="input-field descriptor-below">
-                        <input type="text" />
+                        <input data-path="basics.size" type="text" />
                         <span class="descriptor">Size</span>
                     </div>
                     <div id="basics--gender" class="input-field descriptor-below">
-                        <input type="text" />
+                        <input data-path="basics.gender" type="text" />
                         <span class="descriptor">Gender</span>
                     </div>
                     <div id="basics--age" class="input-field descriptor-below">
-                        <input type="text" />
+                        <input data-path="basics.age" type="text" />
                         <span class="descriptor">Age</span>
                     </div>
                 </div>
                 <div class="column-50">
                     <div id="basics--height" class="input-field descriptor-below">
-                        <input type="text" />
+                        <input data-path="basics.height" type="text" />
                         <span class="descriptor">Height</span>
                     </div>
                     <div id="basics--weight" class="input-field descriptor-below">
-                        <input type="text" />
+                        <input data-path="basics.weight" type="text" />
                         <span class="descriptor">Weight</span>
                     </div>
                     <div id="basics--hair" class="input-field descriptor-below">
-                        <input type="text" />
+                        <input data-path="basics.hair" type="text" />
                         <span class="descriptor">Hair</span>
                     </div>
                     <div id="basics--eyes" class="input-field descriptor-below">
-                        <input type="text" />
+                        <input data-path="basics.eyes" type="text" />
                         <span class="descriptor">Eyes</span>
                     </div>
                     <div id="basics--homeland" class="input-field descriptor-below">
-                        <input type="text" />
+                        <input data-path="basics.homeland" type="text" />
                         <span class="descriptor">Homeland</span>
                     </div>
                 </div>
@@ -75,11 +80,11 @@
                     <span class="text">Land</span>
                 </div>
                 <div id="speed--land--base" class="input-field">
-                    <input type="number" />
+                    <input data-path="basics.speed.base" type="number" />
                     <span class="descriptor">Ft</span>
                 </div>
                 <div id="speed--land--armor" class="input-field">
-                    <input type="number" />
+                    <input data-path="basics.speed.armor" type="number" />
                     <span class="descriptor">Ft</span>
                 </div>
             </div>
@@ -88,7 +93,7 @@
                     <span class="text">Fly</span>
                 </div>
                 <div id="speed--fly--base" class="input-field">
-                    <input type="number" />
+                    <input data-path="basics.speed.fly" type="number" />
                     <span class="descriptor">Ft</span>
                 </div>
             </div>
@@ -96,8 +101,8 @@
                 <div class="plaque">
                     <span class="text">Swim</span>
                 </div>
-                <div id="speed--fly--base" class="input-field">
-                    <input type="number" />
+                <div id="speed--swim--base" class="input-field">
+                    <input data-path="basics.speed.swim" type="number" />
                     <span class="descriptor">Ft</span>
                 </div>
             </div>
@@ -106,7 +111,7 @@
                     <span class="text">Climb</span>
                 </div>
                 <div id="speed--climb--base" class="input-field">
-                    <input type="number" />
+                    <input data-path="basics.speed.climb" type="number" />
                     <span class="descriptor">Ft</span>
                 </div>
             </div>
@@ -115,7 +120,7 @@
                     <span class="text">Burrow</span>
                 </div>
                 <div id="speed--burrow--base" class="input-field">
-                    <input type="number" />
+                    <input data-path="basics.speed.burrow" type="number" />
                     <span class="descriptor">Ft</span>
                 </div>
             </div>
@@ -561,7 +566,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 {% endblock %}
 

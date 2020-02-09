@@ -13,7 +13,7 @@ var config = {
 var jsConfig = Object.assign({}, config, {
     entry: {
         characters: path.resolve(__dirname, 'src', 'js', 'characters.js'),
-        character: path.resolve(__dirname, 'src', 'js', 'character.js')
+        character: path.resolve(__dirname, 'src', 'js', 'character.jsx')
     },
 
     output: {
@@ -31,16 +31,8 @@ var jsConfig = Object.assign({}, config, {
                 loader: 'babel-loader',
 
                 options: {
-                    plugins: ['syntax-dynamic-import'],
-
-                    presets: [
-                        [
-                            '@babel/preset-env',
-                            {
-                                modules: false
-                            }
-                        ]
-                    ]
+                    // plugins: ['syntax-dynamic-import'],
+                    presets: ['@babel/env', '@babel/react']
                 }
             }
         ]

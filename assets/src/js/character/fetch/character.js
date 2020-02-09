@@ -1,4 +1,4 @@
-export default class Character {
+class Character {
     constructor() {
         this._charid = document.querySelector('#character').getAttribute('data-charid');
     }
@@ -9,12 +9,11 @@ export default class Character {
         return new Promise((resolve, reject) => {
             window.fetch(url).then((resp) => resp.json()).then((data) => {
                 if (data.status == 'error') {
-                    reject();
+                    reject(data.message);
                     return;
                 }
 
-                this._data = data;
-                resolve();
+                resolve(data);
             });
         })
     }
@@ -37,8 +36,6 @@ export default class Character {
     set(path, value) {
         this._save_value(path, value);
     }
-
-    get basics() {
-        return this._data.basics;
-    }
 }
+
+export const char = new Character();
