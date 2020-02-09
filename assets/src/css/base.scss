@@ -148,6 +148,13 @@ form {
 
 .flex-box-container {
     display: flex;
+
+    .column-50 {
+        height: 100%;
+        width: 100%;
+        display: inline-block;
+        vertical-align: top;
+    }
 }
 
 .flex-box-container>div {
@@ -157,6 +164,147 @@ form {
 
 .flex-box-container>div:first-child {
     margin-left: 0px;
+}
+
+// .column-50:first-child {
+//     margin-left: 0px;
+// }
+
+.character-section {
+    height: 100%;
+    overflow: auto;
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.input-field-total {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.input-field {
+    display: inline-block;
+    // margin-top: 5px;
+}
+
+.input-field.descriptor-below {
+    input {
+        width: 100%;
+    }
+
+    span.descriptor {
+        display: block;
+        vertical-align: top;
+        font-size: 0.6em;
+    }
+}
+
+.input-field.descriptor-inside {
+    position: relative;
+
+    input {
+        width: 100%;
+    }
+
+    span.descriptor {
+        position: absolute;
+        font-size: 0.65em;
+        top: 0px;
+        left: 0px;
+    }
+
+    span.descriptor.small {
+        font-size: 0.5em;
+    }
+}
+
+.input-field-box.descriptor-inside {
+    span.descriptor {
+        top: 2px;
+        left: 2px;
+    }
+}
+
+.input-field-group {
+    width: 100%;
+}
+
+.plaque,
+.plaque-placeholder {
+    display: inline-block;
+    padding: 5px;
+    height: 40px;
+}
+
+.plaque {
+    display: inline-block;
+    background-color: var(--color);
+    color: var(--background-color);
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    height: 40px;
+
+    span {
+        display: inline-block;
+    }
+
+    span.text {
+        margin-top: 5px;
+    }
+
+    span.text-top {
+        width: 100%;
+        font-size: 0.9em;
+    }
+    span.text-bottom {
+        width: 100%;
+        font-size: 0.65em;
+        position: relative;
+        top: -7px;
+    }
+}
+
+.input-field-box {
+    input {
+        width: 100%;
+        height: 100%;
+        border: 1px solid var(--color);
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    input[readonly] {
+        background-color: var(--input-disabled-background-color);
+        color: var(--color);
+        border: var(--input-background-color);
+    }
+
+    input[readonly] + span.descriptor {
+        color: var(--color);
+    }
+}
+
+.input-field {
+    input[readonly] {
+        background-color: var(--input-disabled-background-color);
+    }
+}
+
+.list {
+    .list--entry {
+        display: inline-block;
+        padding: 5px;
+        border-radius: 4px;
+        background-color: var(--input-background-color);
+        border: 1px solid var(--color);
+        font-size: 0.7em;
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
 }
 
 nav#main-nav {
@@ -234,7 +382,7 @@ div#content.messages-shown {
     height: calc(100% - 25px - 80px - 20px - 80px);
 }
 
-div #characters {
+div#characters {
     .character-list--entry {
         padding: 5px;
         cursor: pointer;
@@ -298,168 +446,21 @@ div#character {
     height: calc(100% - 80px);
     max-width: 400px;
 
-    .character-section {
+    .input-field {
+        width: 100%;
+    }
+
+    #basics {
         height: 100%;
         overflow: auto;
     }
 
-    p {
-        margin: 0px;
-        padding: 0px;
-    }
-
-    .input-field-total {
-        font-weight: bold;
-        text-decoration: underline;
-    }
-
-    .input-field {
-        display: inline-block;
-        // margin-top: 5px;
-    }
-
-    .input-field.descriptor-below {
-        input {
-            width: 100%;
-        }
-
-        span.descriptor {
-            display: block;
-            vertical-align: top;
-            font-size: 0.6em;
-        }
-    }
-
-    .input-field.descriptor-inside {
-        position: relative;
-
-        input {
-            width: 100%;
-        }
-
-        span.descriptor {
-            position: absolute;
-            font-size: 0.65em;
-            top: 0px;
-            left: 0px;
-        }
-
-        span.descriptor.small {
-            font-size: 0.5em;
-        }
-    }
-
-    .input-field-box.descriptor-inside {
-        span.descriptor {
-            top: 2px;
-            left: 2px;
-        }
-    }
-
-    .input-field-group {
+    #character--languages {
         width: 100%;
-        height: 100%;
-    }
 
-    .column-50 {
-        height: 100%;
-        width: calc(50% - 5px);
-        display: inline-block;
-        margin-left: 5px;
-        vertical-align: top;
-    }
-
-    .column-50:first-child {
-        margin-left: 0px;
-    }
-
-    .plaque,
-    .plaque-placeholder {
-        display: inline-block;
-        padding: 5px;
-        height: 40px;
-    }
-
-    .plaque {
-        display: inline-block;
-        background-color: var(--color);
-        color: var(--background-color);
-        padding: 5px;
-        text-align: center;
-        border-radius: 5px;
-        height: 40px;
-
-        span {
-            display: inline-block;
+        .list--entry {
+            text-transform: capitalize;
         }
-
-        span.text {
-            margin-top: 5px;
-        }
-
-        span.text-top {
-            width: 100%;
-            font-size: 0.9em;
-        }
-        span.text-bottom {
-            width: 100%;
-            font-size: 0.65em;
-            position: relative;
-            top: -7px;
-        }
-    }
-
-    .input-field-box {
-        input {
-            width: 100%;
-            height: 100%;
-            border: 1px solid var(--color);
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        input:disabled {
-            background-color: var(--input-disabled-background-color);
-            color: var(--color);
-            border: var(--input-background-color);
-        }
-
-        input:disabled + span.descriptor {
-            color: var(--color);
-        }
-    }
-
-    .input-field {
-        input:disabled {
-            background-color: var(--input-disabled-background-color);
-        }
-    }
-
-    #basics {
-        .input-field {
-            width: 100%;
-        }
-    }
-
-    #speed {
-        margin-top: 10px;
-
-        .input-field {
-            width: 80px;
-
-            input {
-                width: calc(100% - 25px);
-            }
-
-            span.descriptor {
-                width: 20px;
-            }
-        }
-    }
-
-    #speed>div {
-        display: inline-block;
-        margin-top: 10px;
     }
 
     #character--lvl-classes {

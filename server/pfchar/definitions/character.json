@@ -14,11 +14,14 @@
         "alignment": "",
         "speed": {
             "base": 0,
-            "armored": 0,
+            "armor": 0,
             "fly": 0,
             "swim": 0,
             "climb": 0,
-            "burrown": 0
+            "burrow": 0
+        },
+        "languages": {
+            "known": []
         }
     },
     "exp": {

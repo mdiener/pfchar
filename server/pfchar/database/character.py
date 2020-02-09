@@ -40,11 +40,13 @@ class Character(object):
         self._set_char_value(path, value)
 
     @property
-    def complete(self):
-        basics = self.basics
+    def id(self):
+        return self._char_id
 
-        char = {
-            'basics': basics,
+    @property
+    def complete(self):
+        return {
+            'basics': self.basics,
             'attributes': self.attributes,
             'feats': self.feats,
             'skills': self.skills,
@@ -52,12 +54,6 @@ class Character(object):
             'exp': self.exp,
             'traits': self.traits
         }
-
-        return char
-
-    @property
-    def id(self):
-        return self._char_id
 
     @property
     def name(self):
@@ -85,7 +81,7 @@ class Character(object):
 
         basics = self._get_char_value('basics')
         basics['race'] = race['name']
-        basics['speed'] = race['speed']
+        basics['languages']['available'] = self.race['languages']['extended']
 
         return basics
 
@@ -244,6 +240,7 @@ def new_char(userid, char_name, char_class, char_race):
     char['classes'] = [[char_class, 1]]
     char['exp']['level'] = 1
 
+    char['basics']['languages']['known'] = r_get('templates', 'races.' + char_race + '.languages.base')
     char['basics']['speed']['base'] = r_get('templates', 'races.' + char_race + '.speed')
 
     r_set('characters', id, char)

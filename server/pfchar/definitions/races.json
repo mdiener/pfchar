@@ -51,7 +51,7 @@
         "proficiency": ["Battleaxe", "Heavy Pick", "Warhammer"],
         "languages": {
             "base": ["Common", "Dwarven"],
-            "extended": ["Giant", "Gnome", "Goblin", "Orc", "Terran", "Undercommon"]
+            "extended": ["common", "dwarven", "Giant", "Gnome", "Goblin", "Orc", "Terran", "Undercommon"]
         },
         "nethys_link": "https://www.aonprd.com/RacesDisplay.aspx?ItemName=Dwarf"
     },
@@ -97,7 +97,7 @@
         "proficiency": ["Longbow", "Longsword", "Rapier", "Shortbow"],
         "languages": {
             "base": ["Common", "Elven"],
-            "extended": ["Celestial", "Draconic", "Gnoll", "Gnome", "Goblin", "Orc", "Sylvan"]
+            "extended": ["common", "elven", "Celestial", "Draconic", "Gnoll", "Gnome", "Goblin", "Orc", "Sylvan"]
         },
         "nethys_link": "https://www.aonprd.com/RacesDisplay.aspx?ItemName=Elf"
     },
@@ -159,8 +159,8 @@
         },
         "proficiency": [],
         "languages": {
-            "basic": ["common", "gnome"],
-            "extended": ["draconic", "dwarven", "elven", "giant", "goblin", "orc"]
+            "base": ["common", "gnome"],
+            "extended": ["common", "gnome", "draconic", "dwarven", "elven", "giant", "goblin", "orc"]
         },
         "nethys_link": "https://www.aonprd.com/RacesDisplay.aspx?ItemName=Gnome"
     },
@@ -168,7 +168,7 @@
         "name": "Half-Elf",
         "races": ["elf", "human"],
         "size": "medium",
-        "speed": 20,
+        "speed": 30,
         "traits": {
             "low_light_vision": {
                 "name": "Low-Light Vision",
@@ -211,8 +211,8 @@
         },
         "proficiency": [],
         "languages": {
-            "basic": ["common", "elven"],
-            "extended": ["abyssal", "aklo", "aquan", "auran", "celestial", "draconic", "dwarven", "giant", "gnome", "goblin", "gnoll", "halfling", "ignan", "infernal", "orc", "sylvan", "terran", "undercommon"]
+            "base": ["common", "elven"],
+            "extended": ["common", "elven", "abyssal", "aklo", "aquan", "auran", "celestial", "draconic", "dwarven", "giant", "gnome", "goblin", "gnoll", "halfling", "ignan", "infernal", "orc", "sylvan", "terran", "undercommon"]
         }
     },
     "halfling": {
@@ -268,8 +268,8 @@
         },
         "proficiency": ["sling"],
         "languages": {
-            "basic": ["common", "halfling"],
-            "extended": ["dwarven", "elven", "gnome", "goblin"]
+            "base": ["common", "halfling"],
+            "extended": ["common", "halfling", "dwarven", "elven", "gnome", "goblin"]
         }
     },
     "halforc": {
@@ -306,8 +306,8 @@
         },
         "proficiency": ["greataxe", "falchion"],
         "languages": {
-            "basic": ["common", "orc"],
-            "extended": ["abyssal", "draconic", "giant", "gnoll", "goblin"]
+            "base": ["common", "orc"],
+            "extended": ["common", "orc", "abyssal", "draconic", "giant", "gnoll", "goblin"]
         }
     },
     "human": {
@@ -328,8 +328,8 @@
             }
         },
         "languages": {
-            "basic": ["common"],
-            "extended": ["abyssal", "aklo", "aquan", "auran", "celestial", "draconic", "dwarven", "elven", "giant", "gnome", "goblin", "gnoll", "halfling", "ignan", "infernal", "orc", "sylvan", "terran", "undercommon"]
+            "base": ["common"],
+            "extended": ["common", "abyssal", "aklo", "aquan", "auran", "celestial", "draconic", "dwarven", "elven", "giant", "gnome", "goblin", "gnoll", "halfling", "ignan", "infernal", "orc", "sylvan", "terran", "undercommon"]
         }
     }
 }
