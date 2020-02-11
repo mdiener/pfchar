@@ -190,7 +190,8 @@ p {
     // margin-top: 5px;
 }
 
-.input-field.descriptor-below {
+.input-field.descriptor-below,
+.select-field.descriptor-below {
     input {
         width: 100%;
     }
