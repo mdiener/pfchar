@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextInput, NumberInput} from '../../components/inputs.jsx';
+import {TextInput, NumberInput, SelectInput} from '../../components/inputs.jsx';
 
 
 export class CharacterInput extends React.Component {
@@ -61,6 +61,38 @@ export class CharacterNumberInput extends CharacterInput {
             return (
                 <div className={this.getCSSClasses()}>
                     <NumberInput value={this.props.value} readOnly={this.props.readOnly} min={this.props.min} max={this.props.max} onChange={this.onChange} />
+                </div>
+            )
+        }
+    }
+}
+
+
+export class CharacterSelectInput extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.onChange = this.onChange.bind(this);
+    }
+
+    onChange(value) {
+        let path = this.props.pathFragment;
+
+        this.props.onChange(path, value);
+    }
+
+    render() {
+        if (this.props.descriptor) {
+            return (
+                <div className="select-field character-input descriptor-below">
+                    <SelectInput onChange={this.onChange} selectOptions={this.props.selectOptions} value={this.props.value} firstHidden={this.props.firstHidden} />
+                    <span className="descriptor">{this.props.descriptor}</span>
+                </div>
+            )
+        } else {
+            return (
+                <div className="select-field character-input">
+                    <SelectInput onChange={this.onChange} selectOptions={this.props.selectOptions} value={this.props.value} firstHidden={this.props.firstHidden} />
                 </div>
             )
         }

@@ -11,7 +11,7 @@ export class CharacterLanguages extends React.Component {
         let list = [];
         languages.forEach((language, i) => {
             list.push((
-                <span className="list--entry" onClick={this.onLanguageCLicked}>{language}</span>
+                <span key={i} className="list--entry" onClick={this.onLanguageCLicked}>{language}</span>
             ))
         });
 

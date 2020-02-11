@@ -36,7 +36,48 @@ class Character(object):
 
         return str_val + ' ' + text
 
+    def _set_level(self, value):
+        value = 0 if value == '' else int(value)
+        value = 1 if value == 0 else value
+
+        exp = self._get_char_value('exp')
+        growthCurve = r_get('templates', 'mechanics.growth.' + exp['growth'])
+
+        if value == 1:
+            exp['experience'] = 0
+        elif value > 20:
+            exp['experience'] = 0
+        else:
+            exp['experience'] = growthCurve[value - 2]
+
+        exp['level'] = value
+
+        self._set_char_value('exp', exp)
+
+    def _set_experience(self, value):
+        value = 0 if value == '' else int(value)
+        exp = self._get_char_value('exp')
+        growthCurve = r_get('templates', 'mechanics.growth.' + exp['growth'])
+        newLvl = 0
+
+        for index, entry in enumerate(growthCurve):
+            if value < entry:
+                newLvl = index + 1
+                break
+
+        exp['level'] = newLvl
+        exp['experience'] = value
+
+        self._set_char_value('exp', exp)
+
     def set(self, path, value):
+        if path == 'exp.experience':
+            self._set_experience(value)
+            return
+        if path == 'exp.level':
+            self._set_level(value)
+            return
+
         self._set_char_value(path, value)
 
     @property
@@ -50,7 +91,6 @@ class Character(object):
             'attributes': self.attributes,
             'feats': self.feats,
             'skills': self.skills,
-            'classes': self.classes,
             'exp': self.exp,
             'traits': self.traits
         }
@@ -60,16 +100,21 @@ class Character(object):
         return self._get_char_value('basics.name');
 
     @property
-    def classes(self):
-        classes = self._get_char_value('classes')
-        for index, entry in enumerate(classes):
-            classes[index] = [r_get('templates', 'classes.' + entry[0] + '.name'), entry[1]]
-
-        return classes
-
-    @property
     def exp(self):
-        return self._get_char_value('exp')
+        exp = self._get_char_value('exp')
+        growthCurve = r_get('templates', 'mechanics.growth.' + exp['growth'])
+
+        if exp['level'] > 20:
+            exp['nextLevel'] = 0
+        else:
+            nextLevelExp = 0
+            for entry in growthCurve:
+                if exp['experience'] < entry:
+                    nextLevelExp = entry
+                    break
+            exp['nextLevel'] = nextLevelExp
+
+        return exp
 
     @property
     def race(self):
@@ -236,12 +281,12 @@ def new_char(userid, char_name, char_class, char_race):
     char = r_get('templates', 'character')
     char['uid'] = userid
     char['basics']['name'] = char_name
-    char['basics']['race'] = char_race
-    char['classes'] = [[char_class, 1]]
+    char['basics']['race'] = char_race.lower()
     char['exp']['level'] = 1
+    char['exp']['classes'][char_class.lower()] = 1
 
-    char['basics']['languages']['known'] = r_get('templates', 'races.' + char_race + '.languages.base')
-    char['basics']['speed']['base'] = r_get('templates', 'races.' + char_race + '.speed')
+    char['basics']['languages']['known'] = r_get('templates', 'races.' + char_race.lower() + '.languages.base')
+    char['basics']['speed']['base'] = r_get('templates', 'races.' + char_race.lower() + '.speed')
 
     r_set('characters', id, char)
 

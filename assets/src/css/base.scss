@@ -433,22 +433,46 @@ div#new_character_form {
     }
 }
 
-div#controls {
-    height: 75px;
-    text-align: center;
-
-    button {
-        margin-bottom: 5px;
-    }
+div#character>div {
+    height: 100%;
 }
 
 div#character {
     position: relative;
-    height: calc(100% - 80px);
+    height: 100%;
     max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 
     .input-field {
         width: 100%;
+
+        input {
+            width: 100%;
+        }
+    }
+
+    #controls {
+        height: 75px;
+        text-align: center;
+        display: flex;
+
+        button {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+    }
+
+    #char {
+        height: calc(100% - 80px);
+    }
+
+    #char>div {
+        height: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid var(--color);
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
     }
 
     #basics {
@@ -456,184 +480,207 @@ div#character {
         overflow: auto;
     }
 
-    #character--languages {
+    #lvl-classes {
         width: 100%;
 
-        .list--entry {
-            text-transform: capitalize;
-        }
-    }
-
-    #character--lvl-classes {
-        #level {
+        .classes {
             width: 100%;
-        }
-
-        #experience, #growth {
-            width: 50%;
-        }
-    }
-
-    #attributes {
-        #attributes--descriptors {
             margin-top: 10px;
-            width: 100%;
 
-            span {
-                text-align: center;
-                display: inline-block;
-                width: 20%;
-                font-size: 0.8em;
-            }
-
-            span:first-child {
-                width: 100px;
-            }
-        }
-
-        .plaque {
-            width: 100px;
-        }
-
-        .attribute-entry {
-            height: 45px;
-        }
-
-        .input-field {
-            font-size: 1em;
-            vertical-align: middle;
-            width: 20%;
-            height: 40px;
-        }
-    }
-
-    div#hitpoints {
-        margin-top: 10px;
-
-        .plaque {
-            width: 20%;
-        }
-
-        .input-field {
-            height: 40px;
-
-            input {
-                padding-left: 10px;
-                margin-top: 15px;
-            }
-        }
-
-        .flex-box-container>div {
-            margin-left: 10px;
-        }
-
-        .flex-box-container>div:first-child {
-            margin-left: 0px;
-        }
-    }
-
-    div#attacks {
-        margin-top: 10px;
-
-        .plaque {
-            width: 105px;
-        }
-
-        .attack-entry>div {
-            margin-top: 5px;
-        }
-
-        .attack-entry>div:first-child {
-            margin-top: 0px;
-        }
-
-        .cmd--dex-mod,
-        .cmd--str-mod,
-        .cmd--size-mod {
-            .descriptor {
-                font-size: 0.5em;
-            }
-        }
-    }
-
-    div#ac {
-        .plaque,
-        .plaque-placeholder {
-            width: 220px;
-        }
-
-        .flex-box-container {
-            height: 40px;
-            margin-top: 5px;
-        }
-
-        .flex-box-container:first-child {
-            margin-top: 0px;
-        }
-    }
-
-    div#ac--touch,
-    div#ac--flat-footed,
-    div#ac--sr {
-        margin-top: 15px;
-
-        .plaque {
-            width: 200px;
-        }
-    }
-
-    div#ac--sr {
-        .plaque {
-            font-size: 0.8em;
-            span.text {
-                margin-top: 0px;
-            }
-        }
-    }
-
-    div#savings {
-        margin-top: 10px;
-
-        .flex-box-container {
-            margin-top: 5px;
-        }
-        .flex-box-container:first-child {
-            margin-top: 0px;
-        }
-
-        #savings--descriptors {
-            span {
-                display: block;
-                margin-left: 5px;
-                width: 12%;
-                font-size: 0.8em;
-                align-self: flex-end;
-            }
-
-            span:first-child {
-                margin-left: 0px;
-                width: 28%;
-            }
-        }
-
-        .plaque {
-            width: 100%;
-        }
-    }
-
-    div#skills {
-        .skill-modifiers {
-            height: 40px;
-
-            .input-field {
-                height: 100%;
-
-                input {
-                    height: 100%;
+            .classes--descriptor {
+                span {
+                    width: 50%;
                 }
             }
+
+            .flex-box-container {
+                width: 100%;
+            }
+
+            .classes--new {
+                margin-top: 10px;
+            }
         }
     }
+
+    // #character--languages {
+    //     width: 100%;
+    //
+    //     .list--entry {
+    //         text-transform: capitalize;
+    //     }
+    // }
+    //
+    // #character--lvl-classes {
+    //     #level {
+    //         width: 100%;
+    //     }
+    //
+    //     #experience, #growth {
+    //         width: 50%;
+    //     }
+    // }
+    //
+    // #attributes {
+    //     #attributes--descriptors {
+    //         margin-top: 10px;
+    //         width: 100%;
+    //
+    //         span {
+    //             text-align: center;
+    //             display: inline-block;
+    //             width: 20%;
+    //             font-size: 0.8em;
+    //         }
+    //
+    //         span:first-child {
+    //             width: 100px;
+    //         }
+    //     }
+    //
+    //     .plaque {
+    //         width: 100px;
+    //     }
+    //
+    //     .attribute-entry {
+    //         height: 45px;
+    //     }
+    //
+    //     .input-field {
+    //         font-size: 1em;
+    //         vertical-align: middle;
+    //         width: 20%;
+    //         height: 40px;
+    //     }
+    // }
+    //
+    // div#hitpoints {
+    //     margin-top: 10px;
+    //
+    //     .plaque {
+    //         width: 20%;
+    //     }
+    //
+    //     .input-field {
+    //         height: 40px;
+    //
+    //         input {
+    //             padding-left: 10px;
+    //             margin-top: 15px;
+    //         }
+    //     }
+    //
+    //     .flex-box-container>div {
+    //         margin-left: 10px;
+    //     }
+    //
+    //     .flex-box-container>div:first-child {
+    //         margin-left: 0px;
+    //     }
+    // }
+    //
+    // div#attacks {
+    //     margin-top: 10px;
+    //
+    //     .plaque {
+    //         width: 105px;
+    //     }
+    //
+    //     .attack-entry>div {
+    //         margin-top: 5px;
+    //     }
+    //
+    //     .attack-entry>div:first-child {
+    //         margin-top: 0px;
+    //     }
+    //
+    //     .cmd--dex-mod,
+    //     .cmd--str-mod,
+    //     .cmd--size-mod {
+    //         .descriptor {
+    //             font-size: 0.5em;
+    //         }
+    //     }
+    // }
+    //
+    // div#ac {
+    //     .plaque,
+    //     .plaque-placeholder {
+    //         width: 220px;
+    //     }
+    //
+    //     .flex-box-container {
+    //         height: 40px;
+    //         margin-top: 5px;
+    //     }
+    //
+    //     .flex-box-container:first-child {
+    //         margin-top: 0px;
+    //     }
+    // }
+    //
+    // div#ac--touch,
+    // div#ac--flat-footed,
+    // div#ac--sr {
+    //     margin-top: 15px;
+    //
+    //     .plaque {
+    //         width: 200px;
+    //     }
+    // }
+    //
+    // div#ac--sr {
+    //     .plaque {
+    //         font-size: 0.8em;
+    //         span.text {
+    //             margin-top: 0px;
+    //         }
+    //     }
+    // }
+    //
+    // div#savings {
+    //     margin-top: 10px;
+    //
+    //     .flex-box-container {
+    //         margin-top: 5px;
+    //     }
+    //     .flex-box-container:first-child {
+    //         margin-top: 0px;
+    //     }
+    //
+    //     #savings--descriptors {
+    //         span {
+    //             display: block;
+    //             margin-left: 5px;
+    //             width: 12%;
+    //             font-size: 0.8em;
+    //             align-self: flex-end;
+    //         }
+    //
+    //         span:first-child {
+    //             margin-left: 0px;
+    //             width: 28%;
+    //         }
+    //     }
+    //
+    //     .plaque {
+    //         width: 100%;
+    //     }
+    // }
+    //
+    // div#skills {
+    //     .skill-modifiers {
+    //         height: 40px;
+    //
+    //         .input-field {
+    //             height: 100%;
+    //
+    //             input {
+    //                 height: 100%;
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 footer {

@@ -27,7 +27,8 @@
     "exp": {
         "experience": 0,
         "growth": "medium",
-        "level": 0
+        "level": 0,
+        "classes": {}
     },
     "classes": [],
     "attributes": {

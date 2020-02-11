@@ -27,3 +27,7 @@ with open(os.path.join('.', 'pfchar', 'definitions', 'races.json'), 'r') as race
 with open(os.path.join('.', 'pfchar', 'definitions', 'feats.json'), 'r') as feats_f:
     feats = json.load(feats_f)
     r_set('templates', 'feats', feats)
+
+with open(os.path.join('.', 'pfchar', 'definitions', 'mechanics.json'), 'r') as mechanics_f:
+    mechanics = json.load(mechanics_f)
+    r_set('templates', 'mechanics', mechanics)

@@ -8,9 +8,9 @@
         <div class="character-list--entry" data-href="{{ char.url }}">
             <span class="character-list--entry--name">{{ char.name }}</span><span class="character-list--entry--race">{{ char.race }}</span>
             <div class="character-list--entry--classes">
-{% for cls in char.classes %}
-<span class="character-list--entry--classes--class">{{ cls[0] }} lvl {{ cls[1] }}</span>
-{% endfor %}
+                {% for key, value in char.classes.items() %}
+                <span class="character-list--entry--classes--class">{{ key }} lvl {{ value }}</span>
+                {% endfor %}
             </div>
         </div>
     {% endfor %}

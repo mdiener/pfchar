@@ -65,8 +65,8 @@ class Views(object):
             charlist.append({
                 'url': url_for('character', charid=char.id),
                 'name': char.name,
-                'classes': char.classes,
-                'race': char.race
+                'classes': char.exp['classes'],
+                'race': char.basics['race']
             })
 
         return render_template('characters.html', char_list=charlist)

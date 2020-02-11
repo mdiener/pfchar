@@ -1,6 +1,8 @@
 import React from 'react';
-import Basics from './components/basics.jsx';
 import {char} from './fetch/character.js';
+import Basics from './components/basics.jsx';
+import LevelAndClasses from './components/lvl_cls.jsx';
+import {Button} from '../components/inputs.jsx';
 
 
 export default class Character extends React.Component {
@@ -10,13 +12,16 @@ export default class Character extends React.Component {
         this.state = {
             isLoaded: false,
             charData: null,
-            error: null
+            error: null,
+            activeView: 'basics'
         }
 
         this.onChange = this.onChange.bind(this);
+        this._changeView = this._changeView.bind(this);
+        this.onChangeReload = this.onChangeReload.bind(this);
     }
 
-    componentDidMount() {
+    _load() {
         char.load().then(data => {
             this.setState({
                 isLoaded: true,
@@ -28,6 +33,39 @@ export default class Character extends React.Component {
                 error: error
             });
         });
+    }
+
+    _getActiveView(viewName) {
+        let basics = this.state.charData.basics;
+        let lvlCls = {
+            classes: this.state.charData.classes,
+            exp: this.state.charData.exp
+        };
+
+        switch (viewName) {
+            case 'basics': return (<Basics data={basics} onChange={this.onChange} />); break;
+            case 'lvl-classes': return (<LevelAndClasses data={lvlCls} onChange={this.onChangeReload} />); break;
+        }
+    }
+
+    _changeView(view) {
+        this.setState({
+            activeView: view
+        });
+    }
+
+    componentDidMount() {
+        this._load();
+    }
+
+    onChangeReload(path, value) {
+        if (path.startsWith('exp')) {
+            char.set(path, value).then(() => {
+                this._load();
+            }, () => {
+                this._load();
+            });
+        }
     }
 
     onChange(path, value) {
@@ -70,7 +108,19 @@ export default class Character extends React.Component {
             )
         } else {
             return (
-                <Basics basics={charData.basics} onChange={this.onChange} />
+                <div>
+                    <div id="controls">
+                        <Button onClick={this._changeView} className="character-controls-btn" value="Basics" onClickValue={'basics'} />
+                        <Button onClick={this._changeView} className="character-controls-btn" value="Level & Classes" onClickValue={'lvl-classes'} />
+                        <Button onClick={this._changeView} className="character-controls-btn" value="Attributes & HP" onClickValue={'attr-hp'} />
+                        <Button onClick={this._changeView} className="character-controls-btn" value="Attack & Initiative" onClickValue={'att-init'} />
+                        <Button onClick={this._changeView} className="character-controls-btn" value="AC & Savings" onClickValue={'ac-savings'} />
+                        <Button onClick={this._changeView} className="character-controls-btn" value="Skills" onClickValue={'skills'} />
+                    </div>
+                    <div id="char">
+                        {this._getActiveView(this.state.activeView)}
+                    </div>
+                </div>
             );
         }
     }
