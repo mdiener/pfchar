@@ -61,7 +61,13 @@
         "dr": 0,
         "current": 0
     },
-    "initiative": 0,
+    "initiative": {
+        "adjust": 0,
+        "bonus": {
+            "total": 0,
+            "from": []
+        }
+    },
     "ac": {
         "base": {
             "shield_bonus": 0,
@@ -75,7 +81,24 @@
         "sr": 0
     },
     "attack": {
-        "bab": 0
+        "base": {
+            "bonus": {
+                "total": 0,
+                "from": []
+            }
+        },
+        "cmd": {
+            "bonus": {
+                "total": 0,
+                "from": []
+            }
+        },
+        "cmb": {
+            "bonus": {
+                "total": 0,
+                "form": []
+            }
+        }
     },
     "savings": {
         "fortitude": {

@@ -112,6 +112,7 @@
             "ac": 1,
             "attack": 1,
             "cmd": -1,
+            "cmb": -1,
             "skills": {
                 "stealth": 4
             }

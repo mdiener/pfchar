@@ -93,7 +93,9 @@ class Character(object):
             'feats': self.feats,
             'skills': self.skills,
             'exp': self.exp,
-            'traits': self.traits
+            'traits': self.traits,
+            'initiative': self.initiative,
+            'attack': self.attack
         }
 
     @property
@@ -154,6 +156,90 @@ class Character(object):
                 pass
 
         return feats
+
+    @property
+    def attack(self):
+        attack = self._get_char_value('attack')
+        classes = self._get_char_value('exp.classes')
+        clsname = ''
+        clslvl = 0
+        for key in classes.keys():
+            if clslvl < classes[key]:
+                clsname = key
+                clslvl = classes[key]
+
+        bab = r_get('templates', 'classes.' + clsname + '.bab')
+        attack['bab'] = bab[clslvl - 1]
+
+        for key, feat in self.feats.items():
+            try:
+                bonus = feat['direct_bonus']['attack']
+                attack['base']['bonus']['total'] += bonus
+                attack['base']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
+            except KeyError as e:
+                pass
+
+        for key, skill in self.skills.items():
+            try:
+                bonus = skill['direct_bonus']['attack']
+                attack['base']['bonus']['total'] += bonus
+                attack['base']['bonus']['from'].append(self._create_from_string(bonus, 'from skill "' + skill['name'] + '".'))
+            except KeyError as e:
+                pass
+
+        for key, trait in self.traits.items():
+            try:
+                bonus = trait['direct_bonus']['attack']
+                attack['base']['bonus']['total'] += bonus
+                attack['base']['bonus']['from'].append(self._create_from_string(bonus, 'from trait "' + trait['name'] + '".'))
+            except KeyError as e:
+                pass
+
+        race = self.race
+        try:
+            bonus = self.race['direct_bonus']['cmd']
+            attack['cmd']['bonus']['total'] += bonus
+            attack['cmd']['bonus']['from'].append(self._create_from_string(bonus, 'from race ' + race['name']))
+        except KeyError as e:
+            pass
+        try:
+            bonus = self.race['direct_bonus']['cmb']
+            attack['cmb']['bonus']['total'] += bonus
+            attack['cmb']['bonus']['from'].append(self._create_from_string(bonus, 'from race ' + race['name']))
+        except KeyError as e:
+            pass
+
+        return attack
+
+    @property
+    def initiative(self):
+        initiative = self._get_char_value('initiative')
+
+        for key, feat in self.feats.items():
+            try:
+                bonus = feat['direct_bonus']['initiative']
+                initiative['bonus']['total'] += bonus
+                initiative['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
+            except KeyError as e:
+                pass
+
+        for key, skill in self.skills.items():
+            try:
+                bonus = skill['direct_bonus']['initiative']
+                initiative['bonus']['total'] += bonus
+                initiative['bonus']['from'].append(self._create_from_string(bonus, 'from skill "' + skill['name'] + '".'))
+            except KeyError as e:
+                pass
+
+        for key, trait in self.traits.items():
+            try:
+                bonus = trait['direct_bonus']['initiative']
+                initiative['bonus']['total'] += bonus
+                initiative['bonus']['from'].append(self._create_from_string(bonus, 'from trait "' + trait['name'] + '".'))
+            except KeyError as e:
+                pass
+
+        return initiative
 
     @property
     def traits(self):

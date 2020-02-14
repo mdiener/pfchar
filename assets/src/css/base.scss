@@ -514,6 +514,40 @@ div#character {
         .hitpoints {
             margin-top: 20px;
         }
+
+        .attacks {
+            .attack {
+                margin-top: 20px;
+
+                .bab {
+                    .plaque,
+                    .input-field {
+                        width: 50%;
+                    }
+                }
+
+                .cmb,
+                .cmd {
+                    margin-top: 10px;
+
+                    .plaque {
+                        width: 16%;
+                    }
+                }
+
+                .cmb {
+                    .input-field {
+                        width: 21%;
+                    }
+                }
+
+                .cmd {
+                    .input-field {
+                        width: 14%;
+                    }
+                }
+            }
+        }
     }
 
     #char>div {

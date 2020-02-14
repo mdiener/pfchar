@@ -3,6 +3,7 @@ import {char} from './fetch/character.js';
 import Basics from './components/basics.jsx';
 import LevelAndClasses from './components/lvl_cls.jsx';
 import AttributesAndHP from './components/attr_hp.jsx';
+import AttackAndInitiative from './components/atk_init.jsx';
 import {Button} from '../components/inputs.jsx';
 
 
@@ -56,6 +57,14 @@ export default class Character extends React.Component {
                     hitpoints: this.state.charData.hitpoints
                 };
                 return (<AttributesAndHP data={data} onChange={this.onChange} />);
+                break;
+            case 'atk-init':
+                let attrs = this._sumupAttributes(this.state.charData.attributes);
+                data = {
+                    attack: this._sumupAttack(this.state.charData.attack, attrs.dex.modifier, attrs.str.modifier),
+                    initiative: this._sumupInitiative(this.state.charData.initiative, attrs.dex.modifier)
+                };
+                return (<AttackAndInitiative data={data} onChange={this.onChange} />);
                 break;
         }
     }
@@ -125,6 +134,39 @@ export default class Character extends React.Component {
         return attrs;
     }
 
+    _sumupAttack(attack, dexmod, strmod) {
+        let atks = [];
+
+        attack.bab.forEach((bab) => {
+            atks.push({
+                bab: bab,
+                cmb: {
+                    bonus: attack.cmb.bonus,
+                    strmod: strmod,
+                    total: bab + attack.cmb.bonus.total + strmod
+                },
+                cmd: {
+                    bonus: attack.cmd.bonus,
+                    strmod: strmod,
+                    dexmod: dexmod,
+                    base: 10,
+                    total: bab + attack.cmd.bonus.total + strmod + dexmod + 10
+                }
+            });
+        });
+
+        return atks;
+    }
+
+    _sumupInitiative(initiative, dexmod) {
+        return {
+            dexmod: dexmod,
+            total: initiative.adjust + initiative.bonus.total + dexmod,
+            adjust: initiative.adjust,
+            bonus: initiative.bonus
+        };
+    }
+
     render() {
         let {isLoaded, charData, error} = this.state;
 
@@ -149,7 +191,7 @@ export default class Character extends React.Component {
                         <Button onClick={this._changeView} className="character-controls-btn" value="Basics" onClickValue={'basics'} />
                         <Button onClick={this._changeView} className="character-controls-btn" value="Level & Classes" onClickValue={'lvl-classes'} />
                         <Button onClick={this._changeView} className="character-controls-btn" value="Attributes & HP" onClickValue={'attr-hp'} />
-                        <Button onClick={this._changeView} className="character-controls-btn" value="Attack & Initiative" onClickValue={'att-init'} />
+                        <Button onClick={this._changeView} className="character-controls-btn" value="Attack & Initiative" onClickValue={'atk-init'} />
                         <Button onClick={this._changeView} className="character-controls-btn" value="AC & Savings" onClickValue={'ac-savings'} />
                         <Button onClick={this._changeView} className="character-controls-btn" value="Skills" onClickValue={'skills'} />
                     </div>
