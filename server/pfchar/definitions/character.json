@@ -69,16 +69,13 @@
         }
     },
     "ac": {
-        "base": {
-            "shield_bonus": 0,
-            "armor_bonus": 0,
-            "natural_armor": 0,
-            "deflection_modifier": 0,
-            "adjust": 0
-        },
-        "touch": 0,
-        "flat_footed": 0,
-        "sr": 0
+        "base": 10,
+        "deflection_modifier": 0,
+        "natural_armor": 0,
+        "dodge_bonus": 0,
+        "adjust": 0,
+        "touch_adjust": 0,
+        "flat_footed_adjust": 0
     },
     "attack": {
         "base": {
@@ -96,22 +93,22 @@
         "cmb": {
             "bonus": {
                 "total": 0,
-                "form": []
+                "from": []
             }
         }
     },
-    "savings": {
+    "saves": {
         "fortitude": {
             "magic": 0,
-            "adjustment": 0
+            "adjust": 0
         },
-        "refles": {
+        "reflex": {
             "magic": 0,
-            "adjustment": 0
+            "adjust": 0
         },
         "will": {
             "magic": 0,
-            "adjustment": 0
+            "adjust": 0
         }
     },
     "feats": [],

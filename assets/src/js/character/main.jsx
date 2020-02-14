@@ -66,6 +66,12 @@ export default class Character extends React.Component {
                 };
                 return (<AttackAndInitiative data={data} onChange={this.onChange} />);
                 break;
+            case 'saves-ac':
+                let attrs = this._sumupAttributes(this.state.charData.attributes);
+                data = {
+                    saves: this._sumupSaves(this.state.charData.saves, attrs),
+                    ac: this._sumupAC(this.state.charData.ac, attrs.dex.modifier)
+                }
         }
     }
 
@@ -165,6 +171,59 @@ export default class Character extends React.Component {
             adjust: initiative.adjust,
             bonus: initiative.bonus
         };
+    }
+
+    _sumupSaves(saves, attrs) {
+        return {
+            fortitude: {
+                base: saves.fortitude.base,
+                bonus: saves.fortitude.bonus,
+                adjust: saves.fortitude.adjust,
+                magic: saves.fortitude.magic,
+                conmod: attrs.con.modifier,
+                total: saves.fortitude.bae + saves.fortitude.bonus.total + saves.fortitude.adjust + saves.fortitude.magic + attrs.con.modifier
+            },
+            reflex: {
+                base: saves.reflex.base,
+                bonus: saves.reflex.bonus,
+                adjust: saves.reflex.adjust,
+                magic: saves.reflex.magic,
+                dexmod: attrs.dex.modifier,
+                total: saves.reflex.bae + saves.reflex.bonus.total + saves.reflex.adjust + saves.reflex.magic + attrs.con.modifier
+            },
+            will: {
+                base: saves.will.base,
+                bonus: saves.will.bonus,
+                adjust: saves.will.adjust,
+                magic: saves.will.magic,
+                wismod: attrs.wis.modifier,
+                total: saves.will.bae + saves.will.bonus.total + saves.will.adjust + saves.will.magic + attrs.con.modifier
+            }
+        }
+    }
+
+    _sumupAC(ac, dexmod) {
+        shield = 0;
+        armor = 0;
+
+        return {
+            ac: {
+                base: ac.base,
+                dexmod: dexmod,
+                armor: 0,
+                shield: 0,
+                deflection: ac.deflection_modifier,
+                dodge: ac.dodge_bonus,
+                natural: ac.natural_armor,
+                adjust: ac.adjust,
+                bonus: ac.bonus,
+                total: ac.base + dexmod + armor + shield + ac.deflection_modifier + ac.dodge_bonus + ac.natural_armor + ac.adjust + ac.bonus.total
+            },
+            touch: {
+                adjust: ac.touch_adjust,
+                total: ac.base + dexmod + ac.deflection_modifier + ac.dodge_bonus + ac.natural_armor + ac.adjust + ac.bonus.total
+            }
+        }
     }
 
     render() {

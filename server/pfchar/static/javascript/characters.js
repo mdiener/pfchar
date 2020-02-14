@@ -1,1 +1,113 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=4)}([,function(e,t,n){"use strict";function r(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}n.d(t,"a",(function(){return o}));var o=new(function(){function e(){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e)}var t,n,o;return t=e,(n=[{key:"show",value:function(e){var t=document.querySelector(e+".section");t.style.left=t.parentElement.offsetWidth/2-t.offsetWidth/2+"px",null!=t&&(t.classList.add("visible"),t.classList.remove("hidden"))}},{key:"hideAll",value:function(){document.querySelectorAll(".section").forEach((function(e,t){e.classList.add("hidden"),e.classList.remove("visible")}))}}])&&r(t.prototype,n),o&&r(t,o),e}())},,,function(e,t,n){"use strict";n.r(t);var r=n(1);window.onload=function(){r.a.hideAll(),document.querySelector("#new_character_form--cancel").addEventListener("click",(function(){r.a.hideAll()})),document.querySelector("#new_character").addEventListener("click",(function(){r.a.show("#new_character_form")})),document.querySelectorAll("#character-list .character-list--entry").forEach((function(e,t){e.addEventListener("click",(function(e){var t=e.currentTarget.getAttribute("data-href");document.location=document.location.origin+t}))}))}}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/characters.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/js/characters.js":
+/*!******************************!*\
+  !*** ./src/js/characters.js ***!
+  \******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sections_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sections.js */ \"./src/js/sections.js\");\n\n\nwindow.onload = function () {\n  _sections_js__WEBPACK_IMPORTED_MODULE_0__[\"sections\"].hideAll();\n  document.querySelector('#new_character_form--cancel').addEventListener('click', function () {\n    _sections_js__WEBPACK_IMPORTED_MODULE_0__[\"sections\"].hideAll();\n  });\n  document.querySelector('#new_character').addEventListener('click', function () {\n    _sections_js__WEBPACK_IMPORTED_MODULE_0__[\"sections\"].show('#new_character_form');\n  });\n  document.querySelectorAll('#character-list .character-list--entry').forEach(function (charEl, i) {\n    charEl.addEventListener('click', function (e) {\n      var url_part = e.currentTarget.getAttribute('data-href');\n      document.location = document.location.origin + url_part;\n    });\n  });\n};\n\n//# sourceURL=webpack:///./src/js/characters.js?");
+
+/***/ }),
+
+/***/ "./src/js/sections.js":
+/*!****************************!*\
+  !*** ./src/js/sections.js ***!
+  \****************************/
+/*! exports provided: sections */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sections\", function() { return sections; });\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nvar Sections =\n/*#__PURE__*/\nfunction () {\n  function Sections() {\n    _classCallCheck(this, Sections);\n  }\n\n  _createClass(Sections, [{\n    key: \"show\",\n    value: function show(id) {\n      var section = document.querySelector(id + '.section');\n      section.style.left = section.parentElement.offsetWidth / 2 - section.offsetWidth / 2 + 'px';\n\n      if (section != null) {\n        section.classList.add('visible');\n        section.classList.remove('hidden');\n      }\n    }\n  }, {\n    key: \"hideAll\",\n    value: function hideAll() {\n      document.querySelectorAll('.section').forEach(function (section, i) {\n        section.classList.add('hidden');\n        section.classList.remove('visible');\n      });\n    }\n  }]);\n\n  return Sections;\n}();\n\nvar sections = new Sections();\n\n//# sourceURL=webpack:///./src/js/sections.js?");
+
+/***/ })
+
+/******/ });

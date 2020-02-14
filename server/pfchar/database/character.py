@@ -90,12 +90,14 @@ class Character(object):
             'basics': self.basics,
             'attributes': self.attributes,
             'hitpoints': self.hitpoints,
+            'exp': self.exp,
+            'initiative': self.initiative,
+            'attack': self.attack,
+            'saves': self.saves,
+            'ac': self.ac,
             'feats': self.feats,
             'skills': self.skills,
-            'exp': self.exp,
-            'traits': self.traits,
-            'initiative': self.initiative,
-            'attack': self.attack
+            'traits': self.traits
         }
 
     @property
@@ -124,6 +126,157 @@ class Character(object):
         return exp
 
     @property
+    def saves(self):
+        saves = self._get_char_value('saves')
+        saves['fortitude']['bonus'] = {
+            'total': 0,
+            'from': []
+        }
+        saves['fortitude']['base'] = 0
+        saves['reflex']['bonus'] = {
+            'total': 0,
+            'from': []
+        }
+        saves['reflex']['base'] = 0
+        saves['will']['bonus'] = {
+            'total': 0,
+            'from': []
+        }
+        saves['will']['base'] = 0
+
+        classes = self._get_char_value('exp.classes')
+        for cls_key in classes.keys():
+            lvl = classes[cls_key]
+            cls_saves = r_get('templates', 'classes.' + cls_key + '.saves')
+            saves['fortitude']['base'] += cls_saves['fortitude'][lvl - 1]
+            saves['reflex']['base'] += cls_saves['reflex'][lvl - 1]
+            saves['will']['base'] += cls_saves['will'][lvl - 1]
+
+        race = self.race
+        try:
+            fortitude = race['direct_bonus']['saves']['fortitude']
+            saves['fortitude']['bonus']['total'] += fortitude
+            saves['fortitude']['bonus']['from'].append(self._create_from_string(fortitude, 'from race ' + race['name']))
+        except KeyError as e:
+            pass
+        try:
+            reflex = race['direct_bonus']['saves']['reflex']
+            saves['reflex']['bonus']['total'] += reflex
+            saves['reflex']['bonus']['from'].append(self._create_from_string(reflex, 'from race ' + race['name']))
+        except KeyError as e:
+            pass
+        try:
+            will = race['direct_bonus']['saves']['will']
+            saves['will']['bonus']['total'] += will
+            saves['will']['bonus']['from'].append(self._create_from_string(will, 'from race ' + race['name']))
+        except KeyError as e:
+            pass
+
+        for key, feat in self.feats.items():
+            try:
+                fortitude = feat['direct_bonus']['saves']['fortitude']
+                saves['fortitude']['bonus']['total'] += fortitude
+                saves['fortitude']['bonus']['from'].append(self._create_from_string(fortitude, 'from feat ' + feat['name']))
+            except KeyError as e:
+                pass
+            try:
+                reflex = feat['direct_bonus']['saves']['reflex']
+                saves['reflex']['bonus']['total'] += reflex
+                saves['reflex']['bonus']['from'].append(self._create_from_string(reflex, 'from feat ' + feat['name']))
+            except KeyError as e:
+                pass
+            try:
+                will = feat['direct_bonus']['saves']['will']
+                saves['will']['bonus']['total'] += will
+                saves['will']['bonus']['from'].append(self._create_from_string(will, 'from feat ' + feat['name']))
+            except KeyError as e:
+                pass
+
+        for key, skill in self.skills.items():
+            try:
+                fortitude = skill['direct_bonus']['saves']['fortitude']
+                saves['fortitude']['bonus']['total'] += fortitude
+                saves['fortitude']['bonus']['from'].append(self._create_from_string(fortitude, 'from skill ' + skill['name']))
+            except KeyError as e:
+                pass
+            try:
+                reflex = skill['direct_bonus']['saves']['reflex']
+                saves['reflex']['bonus']['total'] += reflex
+                saves['reflex']['bonus']['from'].append(self._create_from_string(reflex, 'from skill ' + skill['name']))
+            except KeyError as e:
+                pass
+            try:
+                will = skill['direct_bonus']['saves']['will']
+                saves['will']['bonus']['total'] += will
+                saves['will']['bonus']['from'].append(self._create_from_string(will, 'from skill ' + skill['name']))
+            except KeyError as e:
+                pass
+
+        for key, trait in self.traits.items():
+            try:
+                fortitude = trait['direct_bonus']['saves']['fortitude']
+                saves['fortitude']['bonus']['total'] += fortitude
+                saves['fortitude']['bonus']['from'].append(self._create_from_string(fortitude, 'from racial trait ' + trait['name']))
+            except KeyError as e:
+                pass
+            try:
+                reflex = trait['direct_bonus']['saves']['reflex']
+                saves['reflex']['bonus']['total'] += reflex
+                saves['reflex']['bonus']['from'].append(self._create_from_string(reflex, 'from racial trait ' + trait['name']))
+            except KeyError as e:
+                pass
+            try:
+                will = trait['direct_bonus']['saves']['will']
+                saves['will']['bonus']['total'] += will
+                saves['will']['bonus']['from'].append(self._create_from_string(will, 'from racial trait ' + trait['name']))
+            except KeyError as e:
+                pass
+
+        return saves
+
+    @property
+    def ac(self):
+        ac = self._get_char_value('ac')
+        ac['bonus'] = {
+            'total': 0,
+            'from': []
+        }
+
+        race = self.race
+        try:
+            bonus = race['direct_bonus']['ac']
+            ac['bonus']['total'] += bonus
+            ac['bonus']['from'].append(self._create_from_string(bonus, 'from race ' + race['name']))
+        except KeyError as e:
+            pass
+
+        for key, feat in self.feats.items():
+            try:
+                bonus = feat['direct_bonus']['ac']
+                ac['bonus']['total'] += bonus
+                ac['bonus']['from'].append(self._create_from_string(bonus, 'from feat ' + feat['name']))
+            except KeyError as e:
+                pass
+
+        for key, skill in self.skills.items():
+            try:
+                bonus = skill['direct_bonus']['ac']
+                ac['bonus']['total'] += bonus
+                ac['bonus']['from'].append(self._create_from_string(bonus, 'from skill ' + skill['name']))
+            except KeyError as e:
+                pass
+
+        for key, trait in self.traits.items():
+            try:
+                bonus = trait['direct_bonus']['ac']
+                ac['bonus']['total'] += bonus
+                ac['bonus']['from'].append(self._create_from_string(bonus, 'from racial trait ' + trait['name']))
+            except KeyError as e:
+                pass
+
+        return ac
+
+    @property
     def race(self):
         return r_get('templates', 'races.' + self._get_char_value('basics.race'))
 
@@ -150,7 +303,7 @@ class Character(object):
             try:
                 for feat_ident in traits[trait_key]['dicrect_bonus']['feats'].keys():
                     feat = r_get('templates', 'feats.' + feat_ident)
-                    feat['from'] = 'from racial traif "' + traits[trait_key]['name'] + '".'
+                    feat['from'] = 'from racial trait "' + traits[trait_key]['name'] + '".'
                     feats[feat_ident] = feat
             except KeyError as e:
                 pass
