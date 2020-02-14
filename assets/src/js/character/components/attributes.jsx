@@ -34,7 +34,12 @@ class Attribute extends React.Component {
     }
 
     render() {
-        let attr = this._getAttr(this.props.data.score, this.props.data.bonus, this.props.data.adjust);
+        let attr = this.props.data
+        if (attr.modifier < 0) {
+            attr.modifier = attr.modifier.toString();
+        } else {
+            attr.modifier = '+' + attr.modifier.toString();
+        }
 
         return (
             <div className="attribute flex-box-container">
@@ -44,9 +49,9 @@ class Attribute extends React.Component {
                 </div>
                 <CharacterNumberInput pathFragment="score" className="input-field-box" onChange={this.onChange} value={attr.score} min={0} />
                 <CharacterNumberInput pathFragment="adjust" className="input-field-box" onChange={this.onChange} value={attr.adjust} />
-                <CharacterNumberInput className="input-field-box" readOnly={true} value={attr.bonus} />
-                <CharacterNumberInput className="input-field-box" readOnly={true} value={attr.totalPoints} />
-                <CharacterInput className="input-field-box" readOnly={true} value={attr.modifier} />
+                <CharacterNumberInput className="input-field-box" readOnly={true} value={attr.bonus.total} />
+                <CharacterNumberInput className="total input-field-box" readOnly={true} value={attr.total} />
+                <CharacterInput className="total input-field-box" readOnly={true} value={attr.modifier} />
             </div>
         )
     }

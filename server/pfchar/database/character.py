@@ -32,7 +32,7 @@ class Character(object):
         if value >= 0:
             str_val += '+' + str(value)
         else:
-            str_val += '-' + str(value)
+            str_val += str(value)
 
         return str_val + ' ' + text
 
@@ -98,11 +98,11 @@ class Character(object):
 
     @property
     def name(self):
-        return self._get_char_value('basics.name');
+        return self._get_char_value('basics.name')
 
     @property
     def hitpoints(self):
-        return self._get_char_value('hitpoints');
+        return self._get_char_value('hitpoints')
 
     @property
     def exp(self):
@@ -208,45 +208,50 @@ class Character(object):
                 attrs['cha']['bonus']['total'] += race_attr_bonus['cha']
                 attrs['cha']['bonus']['from'].append(self._create_from_string(race_attr_bonus['cha'], 'from racial bonus.'))
 
-        for feat in self.feats.items():
-            if 'direct_bonus' in feat:
-                if 'attributes' in feat['direct_bonus']:
-                    if 'str' in feat['direct_bonus']['attributes']:
-                        bonus = feat['direct_bonus']['attributes']['str']
-                        attrs['str']['bonus']['total'] += bonus
-                        attrs['str']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
-                    if 'dex' in feat['direct_bonus']['attributes']:
-                        bonus = feat['direct_bonus']['attributes']['dex']
-                        attrs['dex']['bonus']['total'] += bonus
-                        attrs['str']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
-                    if 'con' in feat['direct_bonus']['attributes']:
-                        bonus = feat['direct_bonus']['attributes']['con']
-                        attrs['con']['bonus']['total'] += bonus
-                        attrs['str']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
-                    if 'int' in feat['direct_bonus']['attributes']:
-                        bonus = feat['direct_bonus']['attributes']['int']
-                        attrs['int']['bonus']['total'] += bonus
-                        attrs['str']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
-                    if 'wis' in feat['direct_bonus']['attributes']:
-                        bonus = feat['direct_bonus']['attributes']['wis']
-                        attrs['wis']['bonus']['total'] += bonus
-                        attrs['str']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
-                    if 'cha' in feat['direct_bonus']['attributes']:
-                        bonus = feat['direct_bonus']['attributes']['cha']
-                        attrs['cha']['bonus']['total'] += bonus
-                        attrs['str']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
+        for key, feat in self.feats.items():
+            try:
+                attributes = feat['direct_bonus']['attributes']
+                if 'str' in attributes:
+                    bonus = attributes['str']
+                    attrs['str']['bonus']['total'] += bonus
+                    attrs['str']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
+                if 'dex' in attributes:
+                    bonus = attributes['dex']
+                    attrs['dex']['bonus']['total'] += bonus
+                    attrs['str']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
+                if 'con' in attributes:
+                    bonus = attributes['con']
+                    attrs['con']['bonus']['total'] += bonus
+                    attrs['str']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
+                if 'int' in attributes:
+                    bonus = attributes['int']
+                    attrs['int']['bonus']['total'] += bonus
+                    attrs['str']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
+                if 'wis' in attributes:
+                    bonus = attributes['wis']
+                    attrs['wis']['bonus']['total'] += bonus
+                    attrs['str']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
+                if 'cha' in attributes:
+                    bonus = attributes['cha']
+                    attrs['cha']['bonus']['total'] += bonus
+                    attrs['str']['bonus']['from'].append(self._create_from_string(bonus, 'from feat "' + feat['name'] + '".'))
+            except KeyError as e:
+                pass
         return attrs
 
     @property
     def skills(self):
         skills = self._get_char_value('skills')
+        traits = self.traits
+        feats = self.feats
+        race = self.race
+
         for skill_key in skills.keys():
             skills[skill_key]['bonus'] = {
                 'total': 0,
                 'from': []
             }
 
-            traits = self.traits
             for trait_key in traits.keys():
                 try:
                     bonus = traits[trait_key]['direct_bonus']['skills'][skill_key]
@@ -257,12 +262,11 @@ class Character(object):
                                 bonus_total = bonus['upgrade']['bonus']
                     else:
                         bonus_total = bonus
-                    skills[skill_key]['bonus']['total'] = bonus_total
+                    skills[skill_key]['bonus']['total'] += bonus_total
                     skills[skill_key]['bonus']['from'].append(self._create_from_string(bonus_total, 'from racial trait "' + traits[trait_key]['name'] + '".'))
                 except KeyError as e:
                     pass
 
-            feats = self.feats
             for feat_key in feats.keys():
                 try:
                     bonus = feats[feat_key]['direct_bonus']['skills'][skill_key]
@@ -273,10 +277,23 @@ class Character(object):
                                 bonus_total = bonus['upgrade']['bonus']
                     else:
                         bonus_total = bonus
-                    skills[skill_key]['bonus']['total'] = bonus_total
+                    skills[skill_key]['bonus']['total'] += bonus_total
                     skills[skill_key]['bonus']['from'].append(self._create_from_string(bonus_total, 'from feat "' + feats[feat_key]['name'] + '".'))
                 except KeyError as e:
                     pass
+
+            try:
+                bonus = race['direct_bonus']['skills'][skill_key]
+                if isinstance(bonus, dict):
+                    if 'upgrade' in bonus:
+                        if skills[skill_key]['ranks'] >= bonus['upgrade']['ranks']:
+                            bonus_total = bonus['upgrade']['bonus']
+                else:
+                    bonus_total = bonus
+                skills[skill_key]['bonus']['total'] += bonus_total
+                skills[skill_key]['bonus']['from'].append(self._create_from_string(bonus_total, 'from race ' + race['name']))
+            except KeyError as e:
+                pass
 
         return skills
 

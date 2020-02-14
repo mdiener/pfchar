@@ -12,7 +12,7 @@ export class CharacterInput extends React.Component {
     getCSSClasses() {
         let cssClasses = ['input-field', 'character-input'];
         if (this.props.className) {
-            cssClasses.push(this.props.className.split(' '));
+            cssClasses = cssClasses.concat(this.props.className.split(' '));
         }
 
         if (this.props.descriptor) {

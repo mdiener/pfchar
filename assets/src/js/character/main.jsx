@@ -37,20 +37,26 @@ export default class Character extends React.Component {
     }
 
     _getActiveView(viewName) {
-        let basics = this.state.charData.basics;
-        let lvlCls = {
-            classes: this.state.charData.classes,
-            exp: this.state.charData.exp
-        };
-        let attrHP = {
-            attributes: this.state.charData.attributes,
-            hitpoints: this.state.charData.hitpoints
-        };
+        let data = null;
 
         switch (viewName) {
-            case 'basics': return (<Basics data={basics} onChange={this.onChange} />); break;
-            case 'lvl-classes': return (<LevelAndClasses data={lvlCls} onChange={this.onChangeReload} />); break;
-            case 'attr-hp': return (<AttributesAndHP data={attrHP} onChange={this.onChange} />); break;
+            case 'basics':
+                return (<Basics data={this.state.charData.basics} onChange={this.onChange} />);
+                break;
+            case 'lvl-classes':
+                data = {
+                    classes: this.state.charData.classes,
+                    exp: this.state.charData.exp
+                };
+                return (<LevelAndClasses data={data} onChange={this.onChangeReload} />);
+                break;
+            case 'attr-hp':
+                data = {
+                    attributes: this._sumupAttributes(this.state.charData.attributes),
+                    hitpoints: this.state.charData.hitpoints
+                };
+                return (<AttributesAndHP data={data} onChange={this.onChange} />);
+                break;
         }
     }
 
@@ -95,6 +101,30 @@ export default class Character extends React.Component {
         return data;
     }
 
+    _sumupAttributes(attributes) {
+        let attrs = {};
+
+        Object.keys(attributes).forEach((key) => {
+            attrs[key] = {
+                total: 0,
+                modifier: 0,
+                bonus: attributes[key].bonus,
+                adjust: attributes[key].adjust,
+                score: attributes[key].score
+            }
+
+            attrs[key].total = attributes[key].score + attributes[key].adjust + attributes[key].bonus.total;
+            let mod = (attrs[key].total - 10) / 2;
+            if (mod < 0) {
+                attrs[key].modifier = Math.ceil(mod);
+            } else {
+                attrs[key].modifier = Math.floor(mod);
+            }
+        });
+
+        return attrs;
+    }
+
     render() {
         let {isLoaded, charData, error} = this.state;
 
@@ -103,7 +133,7 @@ export default class Character extends React.Component {
                 <div className="not-loaded">
                     <p>Character Loading ...</p>
                 </div>
-            )
+            );
         } else if (error != null) {
             return (
                 <div className="error">
@@ -111,7 +141,7 @@ export default class Character extends React.Component {
                     <p>Your character could not be loaded. The following error occurred:</p>
                     <p>{error}</p>
                 </div>
-            )
+            );
         } else {
             return (
                 <div>

@@ -5,6 +5,9 @@ import {CharacterInput, CharacterNumberInput, CharacterSelectInput} from './inpu
 export default class Classes extends React.Component {
     constructor(props) {
         super(props);
+
+        this._onClassAdded = this._onClassAdded.bind(this);
+        this._onClassLevelChanged = this._onClassLevelChanged.bind(this);
     }
 
     _getClassComponents(classes) {
