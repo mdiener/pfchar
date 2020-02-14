@@ -2,6 +2,7 @@ import React from 'react';
 import {char} from './fetch/character.js';
 import Basics from './components/basics.jsx';
 import LevelAndClasses from './components/lvl_cls.jsx';
+import AttributesAndHP from './components/attr_hp.jsx';
 import {Button} from '../components/inputs.jsx';
 
 
@@ -41,10 +42,15 @@ export default class Character extends React.Component {
             classes: this.state.charData.classes,
             exp: this.state.charData.exp
         };
+        let attrHP = {
+            attributes: this.state.charData.attributes,
+            hitpoints: this.state.charData.hitpoints
+        };
 
         switch (viewName) {
             case 'basics': return (<Basics data={basics} onChange={this.onChange} />); break;
             case 'lvl-classes': return (<LevelAndClasses data={lvlCls} onChange={this.onChangeReload} />); break;
+            case 'attr-hp': return (<AttributesAndHP data={attrHP} onChange={this.onChange} />); break;
         }
     }
 

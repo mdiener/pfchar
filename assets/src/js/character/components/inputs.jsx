@@ -11,6 +11,9 @@ export class CharacterInput extends React.Component {
 
     getCSSClasses() {
         let cssClasses = ['input-field', 'character-input'];
+        if (this.props.className) {
+            cssClasses.push(this.props.className.split(' '));
+        }
 
         if (this.props.descriptor) {
             if (this.props.descriptorPosition == 'inside') {
@@ -49,6 +52,12 @@ export class CharacterInput extends React.Component {
 
 
 export class CharacterNumberInput extends CharacterInput {
+    onChange(value) {
+        let path = this.props.pathFragment;
+
+        this.props.onChange(path, Number(value));
+    }
+
     render() {
         if (this.props.descriptor) {
             return (

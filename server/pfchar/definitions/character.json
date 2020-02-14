@@ -33,27 +33,27 @@
     "classes": [],
     "attributes": {
         "str": {
-            "score": 0,
+            "score": 10,
             "adjust": 0
         },
         "dex": {
-            "score": 0,
+            "score": 10,
             "adjust": 0
         },
         "con": {
-            "score": 0,
+            "score": 10,
             "adjust": 0
         },
         "int": {
-            "score": 0,
+            "score": 10,
             "adjust": 0
         },
         "wis": {
-            "score": 0,
+            "score": 10,
             "adjust": 0
         },
         "cha": {
-            "score": 0,
+            "score": 10,
             "adjust": 0
         }
     },

@@ -455,16 +455,46 @@ div#character {
     #controls {
         height: 75px;
         text-align: center;
-        display: flex;
 
         button {
-            width: 100%;
+            margin-right: 5px;
             margin-bottom: 5px;
         }
     }
 
     #char {
         height: calc(100% - 80px);
+
+        .attributes {
+            .attribute--descriptors {
+                text-align: center;
+                font-size: 0.6em;
+
+                .attribute--descriptor {
+                    align-self: flex-end;
+                    width: 15%;
+                }
+                .attribute--descriptor:first-child {
+                    width: 25%;
+                }
+            }
+
+            .attribute {
+                margin-top: 10px;
+
+                .plaque {
+                    width: 25%;
+                }
+
+                .input-field {
+                    width: 15%;
+                }
+            }
+        }
+
+        .hitpoints {
+            margin-top: 20px;
+        }
     }
 
     #char>div {

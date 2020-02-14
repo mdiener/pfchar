@@ -89,6 +89,7 @@ class Character(object):
         return {
             'basics': self.basics,
             'attributes': self.attributes,
+            'hitpoints': self.hitpoints,
             'feats': self.feats,
             'skills': self.skills,
             'exp': self.exp,
@@ -98,6 +99,10 @@ class Character(object):
     @property
     def name(self):
         return self._get_char_value('basics.name');
+
+    @property
+    def hitpoints(self):
+        return self._get_char_value('hitpoints');
 
     @property
     def exp(self):
